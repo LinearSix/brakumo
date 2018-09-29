@@ -1,0 +1,14 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+h1 {
+    font-family: 'Asche', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+}
+.bgimg {
+    background-image: linear-gradient(rgba(0, 0, 0, 1.0)12%, rgba(0, 0, 0, 0.01)25%, rgba(0, 0, 0, 1.0)70%),
+                  url("drumbas_main_bw.jpeg");
+    background-size: 1600px; 
+}
+/* background: linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%); */
