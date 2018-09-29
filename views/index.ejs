@@ -8,6 +8,24 @@
     <title>Brakumo</title>
 </head>
 <body class="bgimg">
-    <h1>Brakumo!</h1>
+    <% include partials/div_nav_bar.ejs %>
+    <br/><div class="div_home_logo">B R A K U M O</div>
+    <br/><div class="div_home_shows_headers_container">
+        <div class="div_home_shows_spacer">&nbsp;</div>
+        <div class="div_home_shows_headers">Date</div>
+        <div class="div_home_shows_headers">Time</div>
+        <div class="div_home_shows_headers">Venue</div>
+        <div class="div_home_shows_headers">Location</div>
+        <div class="div_home_shows_headers">Tickets</div>
+    <br/><div class="div_home_shows_container">
+        <% for (i=0; i<show.length; i++) { %>
+        <div class="div_home_shows_spacer">&nbsp;</div>
+        <div class="div_home_shows"><%= show[i].date %></div>
+        <div class="div_home_shows"><%= show[i].time %></div>
+        <div class="div_home_shows"><%= show[i].ven_name %></div>
+        <div class="div_home_shows"><%= show[i].city %>, <%= show[i].state %></div>
+        <div class="div_home_shows"><%= show[i].ticket_link %></div>
+        <% } %>
+    </div>
 </body>
 </html>
