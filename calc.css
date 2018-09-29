@@ -1,0 +1,27 @@
+body {
+    counter-reset: section;                     /* Set a counter named 'section', and its initial value is 0. */
+  }
+  
+  h3::before {
+    counter-increment: section;                 /* Increment the value of section counter by 1 */
+    content: counter(section);                  /* Display the value of section counter */
+  }
+  ::root {
+    counter-reset: checked-sum, unchecked-sum;
+  }
+  
+  input[type="checkbox"] {
+    counter-increment: unchecked-sum;
+  }
+  
+  input[type="checkbox"]:checked {
+    counter-increment: checked-sum;
+  }
+  
+  .totalUnChecked::after {
+    content: counter(unchecked-sum);
+  }
+  
+  .totalChecked::after {
+    content: counter(checked-sum);
+  }
