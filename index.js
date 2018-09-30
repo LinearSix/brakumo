@@ -12,9 +12,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // set the folder for ejs files
 app.set('views', path.join(__dirname, 'views'));
 
-// Set the folder for css
-// app.use(express.static(path.join(__dirname, 'public/css')))
-
 // Set the folder for public content
 app.use(express.static(path.join(__dirname, 'public')))
 
@@ -33,21 +30,21 @@ app.use(index);
 // set redirect for users adding a /
 app.get('/', function(req, res){ res.redirect('index')});
 
-// app.use((_req, res) => {
-//     res.sendStatus(404);
-// });
+app.use((_req, res) => {
+    res.sendStatus(404);
+});
   
-// app.use((err, _req, res, _next) => {
-// if (err.status) {
-//     return res
-//     .status(err.status)
-//     .set('Content-Type', 'text/plain')
-//     .send(err.message);
-// }
+app.use((err, _req, res, _next) => {
+if (err.status) {
+    return res
+    .status(err.status)
+    .set('Content-Type', 'text/plain')
+    .send(err.message);
+}
 
-// console.error(err.stack);
-// res.sendStatus(500);
-// });
+console.error(err.stack);
+res.sendStatus(500);
+});
   
 // start server
 app.listen(PORT, function() {
