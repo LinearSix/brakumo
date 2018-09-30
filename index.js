@@ -30,21 +30,21 @@ app.use(index);
 // set redirect for users adding a /
 app.get('/', function(req, res){ res.redirect('index')});
 
-// app.use((_req, res) => {
-//     res.sendStatus(404);
-// });
+app.use((_req, res) => {
+    res.sendStatus(404);
+});
   
-// app.use((err, _req, res, _next) => {
-// if (err.status) {
-//     return res
-//     .status(err.status)
-//     .set('Content-Type', 'text/plain')
-//     .send(err.message);
-// }
+app.use((err, _req, res, _next) => {
+if (err.status) {
+    return res
+    .status(err.status)
+    .set('Content-Type', 'text/plain')
+    .send(err.message);
+}
 
-// console.error(err.stack);
-// res.sendStatus(500);
-// });
+console.error(err.stack);
+res.sendStatus(500);
+});
   
 // start server
 app.listen(PORT, function() {
