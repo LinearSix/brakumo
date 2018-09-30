@@ -9,22 +9,36 @@
 </head>
 <body class="bgimg">
     <% include partials/div_nav_bar.ejs %>
-    <br/><div class="div_home_logo">B R A K U M O</div>
-    <br/><div class="div_home_shows_headers_container">
+    <br/>
+    <div class="div_home_logo">B R A K U M O</div>
+    <br/>
+    <div class="div_home_shows_headers_container">
         <div class="div_home_shows_spacer">&nbsp;</div>
         <div class="div_home_shows_headers">Date</div>
         <div class="div_home_shows_headers">Time</div>
         <div class="div_home_shows_headers">Venue</div>
         <div class="div_home_shows_headers">Location</div>
         <div class="div_home_shows_headers">Tickets</div>
-    <br/><div class="div_home_shows_container">
+        <div class="div_home_shows_spacer">&nbsp;</div>
+    </div>
+    <br/>
+    <div class="div_home_shows_container">
         <% for (i=0; i<shows.length; i++) { %>
         <div class="div_home_shows_spacer">&nbsp;</div>
         <div class="div_home_shows"><%= shows[i].show_date.toDateString() %></div>
         <div class="div_home_shows"><%= shows[i].show_time %></div>
         <div class="div_home_shows"><%= shows[i].ven_name %></div>
         <div class="div_home_shows"><%= shows[i].ven_city %>, <%= shows[i].ven_state %></div>
-        <div class="div_home_shows"><%= shows[i].show_ticket_link %></div>
+        <div class="div_home_shows">
+            <% if (shows[i].show_ticket_link != 'NA') { %>
+                <a href="<%= shows[i].show_ticket_link %>" target="_blank">PURCHASE</a>
+            <% } else { %>
+                NA
+            <% } %>
+        </div>
+        <div class="div_home_shows_spacer">
+            <div class="div_show_more">MORE</div>
+        </div>
         <% } %>
     </div>
 </body>

@@ -38,13 +38,6 @@ exports.up = function(knex, Promise) {
         table.string('admin_password').notNullable().defaultTo('');
       }),
 
-      knex.schema.createTable("blogs", function (table) {
-        table.increments('blog_id').primary();
-        table.date('blog_date');
-        table.string('blog_title').notNullable().defaultTo('');
-        table.string('blog_content').notNullable().defaultTo('');
-      }),
-
       knex.schema.createTable("shows", function (table) {
         table.increments('show_id').primary();
         table.integer('venue_id');
@@ -52,17 +45,24 @@ exports.up = function(knex, Promise) {
         table.date('show_date');
         table.time('show_time');
         table.string('show_info').notNullable().defaultTo('');
-        table.integer('show_blog_link')
-        table.foreign('show_blog_link').onDelete('CASCADE').references('blog_id').inTable('blogs');
         table.string('show_ticket_link').notNullable().defaultTo('');
-      })
+      }),
+      
+      knex.schema.createTable("blogs", function (table) {
+        table.increments('blog_id').primary();
+        table.integer('blog_show_id');
+        table.foreign('blog_show_id').onDelete('CASCADE').references('show_id').inTable('shows');
+        table.date('blog_date');
+        table.string('blog_title').notNullable().defaultTo('');
+        table.string('blog_content').notNullable().defaultTo('');
+      }),
     ]);
   };
   
   exports.down = function(knex, Promise) {
     return Promise.all([
-        knex.schema.dropTable("shows"),
         knex.schema.dropTable("blogs"),
+        knex.schema.dropTable("shows"),
         knex.schema.dropTable("venues"),
         knex.schema.dropTable("press"),
         knex.schema.dropTable("admin"),
