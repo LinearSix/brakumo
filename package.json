@@ -1,9 +1,10 @@
 {
   "name": "brakumo",
   "version": "1.0.0",
-  "description": "## User Stories * The user should see a homepage with links to shows, press, blog, and contact information * The user should have access to a navigation bar containing all links on every page * The homepage should list current shows by default and not shows which have passed * The press page should have links to articles and other PR materials about the band * The blog page should show current blogs with links to retrieve older blog posts * The contact page should have booking info and a form to join a mailing list with delivery options",
+  "description": "A data-driven band website for the industrial-dance project, Brakumo",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +23,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "knex": "^0.15.2",
+    "npm": "^6.4.1",
     "pg": "^7.4.3"
   }
 }

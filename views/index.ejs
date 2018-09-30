@@ -18,13 +18,13 @@
         <div class="div_home_shows_headers">Location</div>
         <div class="div_home_shows_headers">Tickets</div>
     <br/><div class="div_home_shows_container">
-        <% for (i=0; i<show.length; i++) { %>
+        <% for (i=0; i<shows.length; i++) { %>
         <div class="div_home_shows_spacer">&nbsp;</div>
-        <div class="div_home_shows"><%= show[i].date %></div>
-        <div class="div_home_shows"><%= show[i].time %></div>
-        <div class="div_home_shows"><%= show[i].ven_name %></div>
-        <div class="div_home_shows"><%= show[i].city %>, <%= show[i].state %></div>
-        <div class="div_home_shows"><%= show[i].ticket_link %></div>
+        <div class="div_home_shows"><%= shows[i].show_date.toDateString() %></div>
+        <div class="div_home_shows"><%= shows[i].show_time %></div>
+        <div class="div_home_shows"><%= shows[i].ven_name %></div>
+        <div class="div_home_shows"><%= shows[i].ven_city %>, <%= shows[i].ven_state %></div>
+        <div class="div_home_shows"><%= shows[i].show_ticket_link %></div>
         <% } %>
     </div>
 </body>
