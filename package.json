@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A data-driven band website for the industrial-dance project, Brakumo",
   "engines": {
+    "npm": "6.4.1",
     "node": "8.12.0"
   },
   "main": "index.js",
