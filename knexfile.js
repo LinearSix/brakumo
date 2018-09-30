@@ -1,6 +1,6 @@
 // Update with your config settings.
 
-// https://whispering-tundra-30740.herokuapp.com/
+// https://fast-chamber-88110.herokuapp.com/
 
 module.exports = {
 
