@@ -1,9 +1,47 @@
     <div class="div_nav">
-        <div class="div_nav_link"><a href="index">HOME</a></div>
-        <div class="div_nav_link"><a href="index">SHOWS</a></div>
-        <div class="div_nav_link"><a href="index">NEWS/BLOG</a></div>
-        <div class="div_nav_link"><a href="index">MERCH</a></div>
-        <div class="div_nav_link"><a href="index">CONTACT</a></div>
-        <div class="div_nav_link"><a href="index">PRESS</a></div>
-        <div class="div_nav_link"><a href="index">MAILING LIST</a></div>
+    <% if (selected_link) { %>
+        <% if (selected_link === 'HOME') { %>
+            <div class="div_nav_link"><u>HOME</u></div>
+        <% } else { %>
+            <div class="div_nav_link"><a href="/index">HOME</a></div>
+        <% } %>
+        <% if (selected_link === 'SHOWS') { %>
+            <div class="div_nav_link"><u>SHOWS</u></div>
+        <% } else { %>
+        <div class="div_nav_link"><a href="/shows">SHOWS</a></div>
+        <% } %>
+        <% if (selected_link === 'BLOG') { %>
+            <div class="div_nav_link"><u>NEWS/BLOG</u></div>
+        <% } else { %>
+        <div class="div_nav_link"><a href="/blog">NEWS/BLOG</a></div>
+        <% } %>
+        <% if (selected_link === 'MERCH') { %>
+            <div class="div_nav_link"><u>MERCH</u></div>
+        <% } else { %>
+        <div class="div_nav_link"><a href="/merch">MERCH</a></div>
+        <% } %>
+        <% if (selected_link === 'CONTACT') { %>
+            <div class="div_nav_link"><u>CONTACT</u></div>
+        <% } else { %>
+        <div class="div_nav_link"><a href="/contact">CONTACT</a></div>
+        <% } %>
+        <% if (selected_link === 'PRESS') { %>
+            <div class="div_nav_link"><u>PRESS</u></div>
+        <% } else { %>
+        <div class="div_nav_link"><a href="/press">PRESS</a></div>
+        <% } %>
+        <% if (selected_link === 'MAIL') { %>
+            <div class="div_nav_link"><u>MAIL</u></div>
+        <% } else { %>
+        <div class="div_nav_link"><a href="/mail">MAILING LIST</a></div>
+        <% } %>
+    <% } else { %>
+        <div class="div_nav_link"><a href="/index">HOME</a></div>
+        <div class="div_nav_link"><a href="/shows">SHOWS</a></div>
+        <div class="div_nav_link"><a href="/blog">NEWS/BLOG</a></div>
+        <div class="div_nav_link"><a href="/merch">MERCH</a></div>
+        <div class="div_nav_link"><a href="/contact">CONTACT</a></div>
+        <div class="div_nav_link"><a href="/press">PRESS</a></div>
+        <div class="div_nav_link"><a href="/mail">MAILING LIST</a></div>
+    <% } %>
     </div>

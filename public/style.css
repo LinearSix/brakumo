@@ -1,11 +1,18 @@
 body, html {
     height: 100%;
     margin: 0;
+    background-color: black;
 }
-/* large background image with linear gradient */
-.bgimg {
+/* large background image with linear gradient for homepage */
+.bg_home_img {
     background-image: linear-gradient(rgba(0, 0, 0, 1.0)12%, rgba(0, 0, 0, 0.01)25%, rgba(0, 0, 0, 1.0)70%),
                   url("drumbas_main_bw.jpeg");
+    background-size: 1600px; 
+}
+/* large background image with linear gradient for shows page */
+.bg_shows_img {
+    background-image: linear-gradient(rgba(0, 0, 0, 1.0)12%, rgba(0, 0, 0, 0.01)25%, rgba(0, 0, 0, 1.0)70%),
+                  url("drumbas_close.jpg");
     background-size: 1600px; 
 }
 /* navigation bar div */
@@ -23,6 +30,7 @@ body, html {
     text-align: center;
     font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 15px;
+    color: white;
 }
 /* link styling */
 a {
@@ -55,7 +63,7 @@ a {
     /* height: 30px; */
     margin-left: auto;
     margin-right: auto;
-    overflow: auto;
+    /* overflow: auto; */
 }
 /* show information headers */
 .div_home_shows_headers {
