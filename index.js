@@ -3,11 +3,12 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 2222;
 const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
 // const knex = require('./db/knex');
 
 // use body-parser middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // set the folder for ejs files
 app.set('views', path.join(__dirname, 'views'));
