@@ -37,6 +37,10 @@ a {
     color: white;
     text-decoration: none;
 }
+@font-face {
+    font-family: "Asche";
+    src: url("asche-bold-webfont.ttf") format("truetype");
+}
 .div_home_logo {
     padding-top: 6%;
     padding-bottom: 6%;
@@ -44,12 +48,13 @@ a {
     margin-right: auto;
     text-align: center;
     font-family: 'Asche', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    src: url("asche-bold-webfont.ttf") format("truetype");
     font-size: 150px;
     color: white;
     /* offset-x | offset-y | blur-radius | color */
     text-shadow: 0px 0px 30px black;
 }
-/* show information headers container */
+/* information headers container */ */
 .div_home_shows_headers_container {
     width: 100%;
     /* height: 30px; */
