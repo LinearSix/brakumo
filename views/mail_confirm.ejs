@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="nav.css" charset="utf-8">
+    <link rel="stylesheet" href="mail.css" charset="utf-8">
+    <title>Brakumo - Mail</title>
+</head>
+<body class="bg_blog_img">
+    <% include partials/div_nav_bar.ejs %>
+    <br/><div class="div_mail_container">
+            <form action="/mail_submit" method="POST">
+                <table class="table_mail_container">
+                    <tr>
+                        <td class="td_mail_left">
+                            <div class="div_mail_label">Name</div>
+                            <div class="div_mail_label">Email</div>
+                            <div class="div_mail_label">State</div>
+                            <br/>&nbsp;
+                            <div class="div_mail_label">Delivery<br/>Preferences</div>
+                        </td>
+                        <td class="td_mail_right">
+                            <div class="div_mail_input"><%= mailing_list[0].mail_name %></div>
+                            <div class="div_mail_input"><%= mailing_list[0].mail_email %></div>
+                            <div class="div_mail_input"><%= mailing_list[0].mail_state %></div>
+                            <div class="div_mail_input"><%= mailing_list[0].mail_preference_1 %></div>
+                            <div class="div_mail_input"><%= mailing_list[0].mail_preference_2 %></div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+</body>
+</html>

@@ -28,8 +28,8 @@ exports.up = function(knex, Promise) {
         table.string('mail_name').notNullable().defaultTo('');
         table.string('mail_email').notNullable().defaultTo('');
         table.string('mail_state').notNullable().defaultTo('');
-        table.boolean('mail_preference_1').notNullable().defaultTo(false);
-        table.boolean('mail_preference_2').notNullable().defaultTo(false);
+        table.integer('mail_preference_1').notNullable().defaultTo(1);
+        table.integer('mail_preference_2').notNullable().defaultTo(1);
       }),
 
       knex.schema.createTable("admin", function (table) {
