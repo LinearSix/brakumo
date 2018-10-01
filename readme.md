@@ -8,7 +8,7 @@
 * The shows listed on the homepage should have links to ticket purchase and more information
 * The press page should have links to articles and other PR materials about the band
 * The blog page should show current blogs with links to retrieve older blog posts
-* The contact page should have booking info 
+* The contact page should have booking email/phone and/or a form which emails the booking agent
 * The mailing list should allow the user to select delivery options
 
 ## Administrator Stories

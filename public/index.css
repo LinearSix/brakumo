@@ -31,7 +31,7 @@ a {
     margin-right: auto;
     text-align: center;
     font-family: 'Asche', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    src: url("asche-bold-webfont.ttf") format("truetype");
+    /* src: url("asche-bold-webfont.ttf") format("truetype"); */
     font-size: 150px;
     color: white;
     /* offset-x | offset-y | blur-radius | color */
