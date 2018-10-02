@@ -12,6 +12,7 @@
     <% include partials/div_nav_bar.ejs %>
     <br/><div class="div_shows_container">
         <% for (i=0; i<shows.length; i++) { %>
+            <a name="<%= shows[i].show_id %>"></a>
             <table class="table_shows_container">
                 <tr>
                     <td class="td_shows_left">

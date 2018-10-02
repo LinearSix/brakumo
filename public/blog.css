@@ -5,7 +5,7 @@ body, html {
     overflow: visible;
 }
 /* large background image with linear gradient for shows page */
-.bg_mail_img {
+.bg_blog_img {
     background-image: linear-gradient(135deg, rgba(0, 0, 0, 1.0)7%, rgba(0, 0, 0, 0.5)60%, rgba(0, 0, 0, 1.0)90%),
                   url("drumbas_close.jpg");
     background-size: 1600px; 
@@ -15,18 +15,18 @@ a {
     color: white;
     text-decoration: none;
 }
-.div_mail_container {
+.div_blog_container {
     padding-top: 40px;
     width: 100%;
     height: 100%;
     overflow-y: scroll;
 }
 /* scrolling shows container */
-.table_mail_container {
+.table_blog_container {
     width: 100%;
 
 }
-.td_mail_left {
+.td_blog_left {
     width: 50%;
     padding: 13px;
     text-align: right;
@@ -38,7 +38,7 @@ a {
     text-shadow: 0px 0px 1px black;
     /* border: rgb(9, 255, 0) 1px solid; */
 }
-.td_mail_right {
+.td_blog_right {
     width: 50%;
     border-left: white 1px solid;
     padding: 13px;
@@ -52,7 +52,7 @@ a {
     /* border: rgb(9, 255, 0) 1px solid; */
 }
 /* show venue style */
-.div_mail_label {
+.div_blog_title {
     /* float: left; */
     width: 100%;  
     text-align: right;
@@ -65,7 +65,7 @@ a {
     /* border: white 1px solid; */
 }
 /* show address style */
-.div_shows_address {
+.div_blog_venue {
     /* float: left; */
     width: 100%;
     text-align: right;
@@ -77,9 +77,9 @@ a {
     /* border: white 1px solid; */
 }
 /* show description style */
-.div_shows_desc {
+.div_blog_reference {
     float: right;
-    width: 200px;
+    width: 100%;
     /* height: 20px; */
     text-align: right;
     font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -91,7 +91,7 @@ a {
     /* border: white 1px solid; */
 }
 /* show date style */
-.div_shows_date {
+.div_blog_date {
     /* float: left; */
     width: 100%;
     padding-top: 4px;
@@ -103,8 +103,21 @@ a {
     text-shadow: 0px 0px 1px black;
     /* border: white 1px solid; */
 }
+/* show date style */
+.div_blog_venue {
+    /* float: left; */
+    width: 100%;
+    padding-top: 4px;
+    text-align: right;
+    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    color: white;
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 0px 0px 1px black;
+    /* border: white 1px solid; */
+}
 /* show information style */
-.div_shows_info {
+.div_blog_content {
     width: 200px;
     padding-top: 4px;
     /* height: 20px; */
@@ -116,24 +129,4 @@ a {
     /* offset-x | offset-y | blur-radius | color */
     text-shadow: 0px 0px 1px black;
     /* border: white 1px solid; */
-}
-/* show information "TICKETS" button container */
-.div_shows_tix {
-    /* float: left; */
-    width: 110px;
-    text-align: center;
-    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 14px;
-    color: white;
-    border: white 1px solid;
-}
-/* show "SHOW BLOG" button tyle */
-.div_shows_blog {
-    /* float: left; */
-    width: 110px;
-    text-align: center;
-    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 14px;
-    color: white;
-    border: white 1px solid;
 }
