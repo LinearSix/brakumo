@@ -17,11 +17,11 @@
                         <td class="td_press_left">
                             <div class="div_press_publication"><%= press[i].press_publication %></div>
                             <div class="div_press_date"><%= press[i].press_date.toDateString() %></div>
-                            <div class="div_press_author">by <%= press[i].press_author %></div>
                             <div class="div_press_link"><a href="<%= press[i].press_link %>" target="_blank"><%= press[i].press_link %></a></div>
                         </td>
                         <td class="td_press_right">
                             <div class="div_press_content"><%= press[i].press_content %></div>
+                            <div class="div_press_author">~ <%= press[i].press_author %></div>
                         </td>
                     </tr>
                 </table>

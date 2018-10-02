@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="nav.css" charset="utf-8">
-    <link rel="stylesheet" href="shows.css" charset="utf-8">
+    <link rel="stylesheet" href="/nav.css" charset="utf-8">
+    <link rel="stylesheet" href="/shows.css" charset="utf-8">
     <title>Brakumo</title>
 </head>
 <body class="bg_shows_img">
@@ -24,7 +24,7 @@
                         
                         <br/><%= shows[i].ven_city %>, <%= shows[i].ven_state %> <%= shows[i].ven_postal %>
                         <br/><%= shows[i].ven_phone %> | <a href="<%= shows[i].ven_web %>" target="_blank">Website</a></div>
-                        <div class="div_shows_desc"><%= shows[i].ven_desc %></div>
+                        <div class="div_shows_ven_desc"><%= shows[i].ven_desc %></div>
                     </td>
                     <td class="td_shows_right">
                         <div class="div_shows_date"><%= shows[i].show_date.toDateString() %> - <%= shows[i].show_time %></div>

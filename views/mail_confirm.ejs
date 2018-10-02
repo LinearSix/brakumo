@@ -8,29 +8,39 @@
     <link rel="stylesheet" href="mail.css" charset="utf-8">
     <title>Brakumo - Mail</title>
 </head>
-<body class="bg_blog_img">
+<body class="bg_mail_img">
     <% include partials/div_nav_bar.ejs %>
     <br/><div class="div_mail_container">
-            <form action="/mail_submit" method="POST">
+
                 <table class="table_mail_container">
                     <tr>
+                        <td colspan="2">
+                            <div class="div_mail_confirm">Thanks <%= mailing_list[0].mail_name %>!</div>
+                            <div class="div_mail_the_following">The following information has been added to the Brakumo mailing list:</div>
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="td_mail_left">
-                            <div class="div_mail_label">Name</div>
                             <div class="div_mail_label">Email</div>
                             <div class="div_mail_label">State</div>
-                            <br/>&nbsp;
-                            <div class="div_mail_label">Delivery<br/>Preferences</div>
+                            <div class="div_mail_label">Preferences</div>
                         </td>
                         <td class="td_mail_right">
-                            <div class="div_mail_input"><%= mailing_list[0].mail_name %></div>
-                            <div class="div_mail_input"><%= mailing_list[0].mail_email %></div>
-                            <div class="div_mail_input"><%= mailing_list[0].mail_state %></div>
-                            <div class="div_mail_input"><%= mailing_list[0].mail_preference_1 %></div>
-                            <div class="div_mail_input"><%= mailing_list[0].mail_preference_2 %></div>
+                            <div class="div_mail_value"><%= mailing_list[0].mail_email %></div>
+                            <div class="div_mail_value"><%= mailing_list[0].mail_state %></div>
+                            <div class="div_mail_value">
+                                <% if (mailing_list[0].mail_preference_1 === 1) { %>
+                                    Send me info on everything!
+                                <% } else if (mailing_list[0].mail_preference_1 === 2) { %>
+                                    Only send me show listings
+                                <% } else if (mailing_list[0].mail_preference_1 === 3) { %>
+                                    Only send me show listings for my state
+                                <% } %>
+                            </div>
                         </td>
                     </tr>
                 </table>
-            </form>
+
         </div>
 </body>
 </html>

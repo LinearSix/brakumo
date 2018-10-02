@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="mail.css" charset="utf-8">
     <title>Brakumo - Mail</title>
 </head>
-<body class="bg_blog_img">
+<body class="bg_mail_img">
     <% include partials/div_nav_bar.ejs %>
     <br/><div class="div_mail_container">
             <form action="/mail_submit" method="POST">
@@ -86,12 +86,8 @@
                             <div class="div_mail_radio">
                                 <input type="radio" name="mail_preference_1" value="2"> Only send me show listings
                             </div>
-                            <br/>&nbsp;
                             <div class="div_mail_radio">
-                                <input type="radio" name="mail_preference_2" value="1"> Send me all show listings
-                            </div>
-                            <div class="div_mail_radio">
-                                <input type="radio" name="mail_preference_2" value="2"> Only send me show listings for my state
+                                <input type="radio" name="mail_preference_1" value="3"> Only send me show listings for my state
                             </div>
                         </td>
                     </tr>

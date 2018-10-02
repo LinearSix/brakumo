@@ -54,7 +54,7 @@ exports.up = function(knex, Promise) {
         table.foreign('blog_show_id').onDelete('CASCADE').references('show_id').inTable('shows');
         table.date('blog_date');
         table.string('blog_title').notNullable().defaultTo('');
-        table.string('blog_content').notNullable().defaultTo('');
+        table.string('blog_content', 1000).notNullable().defaultTo('');
       }),
     ]);
   };

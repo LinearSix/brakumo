@@ -55,8 +55,22 @@ a {
 .div_mail_label {
     /* float: left; */
     width: 100%;
-    padding-top: 1px;
+    /* padding-top: 1px; */
     text-align: right;
+    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    /* font-weight: bold; */
+    color: white;
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 0px 0px 1px black;
+    /* border: white 1px solid; */
+}
+/* show venue style */
+.div_mail_value {
+    /* float: left; */
+    width: 100%;
+    /* padding-top: 1px; */
+    text-align: left;
     font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
     /* font-weight: bold; */
@@ -106,6 +120,33 @@ a {
     text-align: center;
     font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 22px;
+    color: white;
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 0px 0px 1px black;
+    /* border: white 1px solid; */
+}
+.div_mail_confirm {
+    /* float: left; */
+    width: 100%;
+    padding-top: 40px;
+    text-align: center;
+    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 0px 0px 1px black;
+    /* border: white 1px solid; */
+}
+.div_mail_the_following {
+    /* float: left; */
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    font-style: italic;
     color: white;
     /* offset-x | offset-y | blur-radius | color */
     text-shadow: 0px 0px 1px black;
