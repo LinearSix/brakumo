@@ -32,6 +32,20 @@ exports.seed = function(knex, Promise) {
           "show_time": "13:29:45",
           "show_info": "With special guests Papa Hemmingway, Foolproof, and Radiohead",
           "show_ticket_link": "https://www.ticketmaster.com/"
+        },
+        {
+          "venue_id": 4,
+          "show_date": "2018-10-18",
+          "show_time": "13:29:45",
+          "show_info": "Free beer, free love, nude jack-o-lantern carving contest",
+          "show_ticket_link": "http://www.frontgatetickets.com/"
+        },
+        {
+          "venue_id": 3,
+          "show_date": "2018-10-20",
+          "show_time": "13:29:45",
+          "show_info": "Why would you go to this when there are so many other cool things happening?",
+          "show_ticket_link": "https://www.ticketmaster.com/"
         }
       ]);
     });

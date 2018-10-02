@@ -29,7 +29,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           "ven_name": "Elysium",
-          "ven_address_1": "705 Red River St,",
+          "ven_address_1": "705 Red River St",
           "ven_address_2": "",
           "ven_city": "Austin",
           "ven_state": "TX",
@@ -37,6 +37,17 @@ exports.seed = function(knex, Promise) {
           "ven_phone": "(512) 478-8385",
           "ven_web": "http://www.elysiumonline.net/",
           "ven_desc": "Goth & industrial dance music from DJs & live bands, with theme nights, sunken dance floor & patio."
+        },
+        {
+          "ven_name": "Empire Control Room",
+          "ven_address_1": "606 E 7th St",
+          "ven_address_2": "",
+          "ven_city": "Austin",
+          "ven_state": "TX",
+          "ven_postal": "78701",
+          "ven_phone": "",
+          "ven_web": "http://empireatx.com/",
+          "ven_desc": "Empire is a 15,000 square foot modern music space at 7th and Red River, dedicated to presenting quirky, warehouse style events that feel more like adventurous discoveries than everyday affairs."
         }
       ]);
     });
