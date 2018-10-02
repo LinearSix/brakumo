@@ -35,6 +35,36 @@
         <% } else { %>
         <div class="div_nav_link"><a href="/mail">MAILING LIST</a></div>
         <% } %>
+        <% if (selected_link === 'ADMIN') { %>
+            <br/>
+            <% if (admin_link) { %>
+                <% if (admin_link === 'ADMIN_SHOWS') { %>
+                    <div class="div_admin_link"><u>SHOWS ADMIN</u></div>
+                <% } else { %>
+                    <div class="div_admin_link"><a href="/admin_shows">SHOWS ADMIN</a></div>
+                <% } %>
+                <% if (admin_link === 'ADMIN_BLOG') { %>
+                    <div class="div_admin_link"><u>BLOG ADMIN</u></div>
+                <% } else { %>
+                    <div class="div_admin_link"><a href="/admin_blog">BLOG ADMIN</a></div>
+                <% } %>
+                <% if (admin_link === 'ADMIN_PRESS') { %>
+                    <div class="div_admin_link"><u>PRESS ADMIN</u></div>
+                <% } else { %>
+                    <div class="div_admin_link"><a href="/admin_press">PRESS ADMIN</a></div>
+                <% } %>
+                <% if (admin_link === 'ADMIN_MAIL') { %>
+                    <div class="div_admin_link"><u>MAILING LIST ADMIN</u></div>
+                <% } else { %>
+                    <div class="div_admin_link"><a href="/admin_mail">MAILING LIST ADMIN</a></div>
+                <% } %>
+            <% } else { %>
+                <div class="div_admin_link"><a href="/admin_shows">SHOWS ADMIN</a></div>
+                <div class="div_admin_link"><a href="/admin_blog">BLOG ADMIN</a></div>
+                <div class="div_admin_link"><a href="/admin_press">PRESS ADMIN</a></div>
+                <div class="div_admin_link"><a href="/admin_mail">MAILING LIST ADMIN</a></div>
+            <% } %>
+        <% } %>
     <% } else { %>
         <div class="div_nav_link"><a href="/index">HOME</a></div>
         <div class="div_nav_link"><a href="/shows">SHOWS</a></div>

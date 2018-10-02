@@ -1,0 +1,114 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color: black;
+    overflow: visible;
+}
+/* large background image with linear gradient for shows page */
+.bg_admin_img {
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 1.0)7%, rgba(0, 0, 0, 0.5)60%, rgba(0, 0, 0, 1.0)90%),
+                  url("darth_drummer.jpg");
+    background-size: 800px;
+    background-repeat:no-repeat;
+    background-position: center top;
+}
+.div_admin_link {
+    float: left;
+    width: 24.25%;
+    padding-top: 20px;
+    text-align: center;
+    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 17px;
+    color: white;
+}
+/* link styling */
+a {
+    color: white;
+    text-decoration: none;
+}
+.div_admin_container {
+    padding-top: 250px;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+/* scrolling shows container */
+.table_admin_container {
+    width: 100%;
+    border-bottom: white 1px solid;
+}
+.td_admin_left {
+    width: 50%;
+    padding: 13px;
+    text-align: right;
+    vertical-align: top;
+    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    color: white;
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 0px 0px 1px black;
+    /* border: rgb(9, 255, 0) 1px solid; */
+}
+.td_admin_right {
+    width: 50%;
+    border-left: white 1px solid;
+    padding: 13px;
+    text-align: left;
+    vertical-align: top;
+    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    color: white;
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 0px 0px 1px black;
+    /* border: rgb(9, 255, 0) 1px solid; */
+}
+/* show venue style */
+.div_admin_usepass {
+    /* float: left; */
+    width: 100%;
+    text-align: right;
+    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    /* font-weight: bold; */
+    color: white;
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 0px 0px 1px black;
+    /* border: white 1px solid; */
+}
+/* show venue style */
+.div_admin_label {
+    /* float: left; */
+    width: 100%;
+    text-align: right;
+    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    /* font-weight: bold; */
+    color: white;
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 0px 0px 1px black;
+    /* border: white 1px solid; */
+}
+/* show address style */
+.div_admin_input {
+    /* float: left; */
+    width: 100%;
+    text-align: left;
+    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    color: white;
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 0px 0px 1px black;
+    /* border: white 1px solid; */
+}
+.div_admin_button {
+    /* float: left; */
+    width: 100%;
+    padding-bottom: 10px;
+    text-align: center;
+    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    color: white;
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 0px 0px 1px black;
+    /* border: white 1px solid; */
+}

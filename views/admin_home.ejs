@@ -11,20 +11,15 @@
 <body class="bg_admin_img">
     <% include partials/div_nav_bar.ejs %>
     <br/><div class="div_admin_container">
-        <form action="/admin_home" method="POST">
+        <form actio="/admin_login">
             <table class="table_admin_container">
                 <tr>
                     <td class="td_admin_left">
-                        <div class="div_admin_usepass">username</div>
-                        <div class="div_admin_usepass">password</div>
+                        <div class="div_admin_usepass">Logged in as</div>
                     </td>
                     <td class="td_admin_right">
-                        <div class="div_admin_input"><input type="text" name="admin_username"></div>
-                        <div class="div_admin_input"><input type="password" name="admin_password"></div>
+                        <div class="div_admin_input"><%= admin[0].admin_username %></div>
                     </td>
-                </tr>
-                <tr>
-                    <td colspan="2"><div class="div_admin_button"><button type="submit">Log In</button></div></td>
                 </tr>
             </table>
         </form>

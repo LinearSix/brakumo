@@ -20,11 +20,10 @@ router.get('/shows', (req, res, next) => {
 });
 
 // list selected show
-router.get('/shows/:id', (req, res, next) => {
+router.get('/show/:id', (req, res, next) => {
     knex('shows')
     .innerJoin('venues', 'venue_id', 'ven_id')
     .where('show_id', '=', req.params.id)
-    .orderBy('show_date', 'asc')
     .then((shows) => {
         let selected_link = '';
         res.render('shows', { shows, selected_link })
