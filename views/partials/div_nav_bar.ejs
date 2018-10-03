@@ -38,6 +38,11 @@
         <% if (selected_link === 'ADMIN') { %>
             <br/>
             <% if (admin_link) { %>
+                <% if (admin_link === 'ADMIN_VENUES') { %>
+                    <div class="div_admin_link"><u>VENUES ADMIN</u></div>
+                <% } else { %>
+                    <div class="div_admin_link"><a href="/admin_venues">VENUES ADMIN</a></div>
+                <% } %>
                 <% if (admin_link === 'ADMIN_SHOWS') { %>
                     <div class="div_admin_link"><u>SHOWS ADMIN</u></div>
                 <% } else { %>
@@ -54,15 +59,16 @@
                     <div class="div_admin_link"><a href="/admin_press">PRESS ADMIN</a></div>
                 <% } %>
                 <% if (admin_link === 'ADMIN_MAIL') { %>
-                    <div class="div_admin_link"><u>MAILING LIST ADMIN</u></div>
+                    <div class="div_admin_link"><u>MAILING ADMIN</u></div>
                 <% } else { %>
-                    <div class="div_admin_link"><a href="/admin_mail">MAILING LIST ADMIN</a></div>
+                    <div class="div_admin_link"><a href="/admin_mail">MAILING ADMIN</a></div>
                 <% } %>
             <% } else { %>
+                <div class="div_admin_link"><a href="/admin_venues">VENUES ADMIN</a></div>
                 <div class="div_admin_link"><a href="/admin_shows">SHOWS ADMIN</a></div>
                 <div class="div_admin_link"><a href="/admin_blog">BLOG ADMIN</a></div>
                 <div class="div_admin_link"><a href="/admin_press">PRESS ADMIN</a></div>
-                <div class="div_admin_link"><a href="/admin_mail">MAILING LIST ADMIN</a></div>
+                <div class="div_admin_link"><a href="/admin_mail">MAILING ADMIN</a></div>
             <% } %>
         <% } %>
     <% } else { %>

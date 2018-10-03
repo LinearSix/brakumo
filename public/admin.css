@@ -14,7 +14,7 @@ body, html {
 }
 .div_admin_link {
     float: left;
-    width: 24.25%;
+    width: 19.75%;
     padding-top: 20px;
     text-align: center;
     font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -33,6 +33,9 @@ a {
     overflow-y: scroll;
 }
 /* scrolling shows container */
+.table_login_container {
+    width: 100%;
+}
 .table_admin_container {
     width: 100%;
     border-bottom: white 1px solid;
