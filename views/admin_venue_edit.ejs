@@ -12,7 +12,8 @@
 <body class="bg_admin_img">
     <% include partials/div_nav_bar.ejs %>
     <br/><div class="div_shows_container">
-        <form action="/admin_venue_submit" method="POST">
+        <form action="/admin_venue_update" method="POST">
+            <input type="hidden" name="ven_id" value="<%= venues[0].ven_id %>">
             <table class="table_login_container">
                 <tr>
                     <td class="td_shows_left">
@@ -27,12 +28,12 @@
                         <div class="div_admin_label">Description</div>
                     </td>
                     <td class="td_shows_right">
-                        <div class="div_admin_input"><input type="text" size="42" name="ven_name"></div>
-                        <div class="div_admin_input"><input type="text" size="42" name="ven_address_1"></div>
-                        <div class="div_admin_input"><input type="text" size="42" name="ven_address_2"></div>
-                        <div class="div_admin_input"><input type="text" size="42" name="ven_city"></div>
+                        <div class="div_admin_input"><input type="text" size="42" name="ven_name" value="<%= venues[0].ven_name %>"></div>
+                        <div class="div_admin_input"><input type="text" size="42" name="ven_address_1" value="<%= venues[0].ven_address_1 %>"></div>
+                        <div class="div_admin_input"><input type="text" size="42" name="ven_address_2" value="<%= venues[0].ven_address_2 %>"></div>
+                        <div class="div_admin_input"><input type="text" size="42" name="ven_city" value="<%= venues[0].ven_city %>"></div>
                         <div class="div_admin_input"><select name="ven_state">
-                                <option value="AL"></option>
+                                <option selected value="<%= venues[0].ven_state %>"><%= venues[0].ven_state %></option>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
                                 <option value="AZ">Arizona</option>
@@ -84,17 +85,17 @@
                                 <option value="WI">Wisconsin</option>
                                 <option value="WY">Wyoming</option>
                             </select></div>
-                        <div class="div_admin_input"><input type="text" size="15" name="ven_postal"></div>
-                        <div class="div_admin_input"><input type="text" size="15" name="ven_phone"></div>
-                        <div class="div_admin_input"><input type="text" size="42" name="ven_web"></div>
+                        <div class="div_admin_input"><input type="text" size="15" name="ven_postal" value="<%= venues[0].ven_postal %>"></div>
+                        <div class="div_admin_input"><input type="text" size="15" name="ven_phone" value="<%= venues[0].ven_phone %>"></div>
+                        <div class="div_admin_input"><input type="text" size="42" name="ven_web" value="<%= venues[0].ven_web %>"></div>
                         <div class="div_admin_input">
-                            <textarea name="ven_desc" rows="10" cols="40" maxlength="1000" wrap="hard"></textarea>
+                            <textarea name="ven_desc" rows="10" cols="40" maxlength="1000" wrap="hard"><%= venues[0].ven_desc %></textarea>
                         </div>
                     </td>
                 </tr>
                 <tr><td colspan="2">
                     <div class="div_admin_button">
-                        <button type="submit">ADD VENUE</button>
+                        <button type="submit">UPDATE VENUE</button>
                     </div>
                 </td></tr>
             </table>

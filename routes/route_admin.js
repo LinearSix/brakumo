@@ -65,7 +65,7 @@ router.get('/admin_venue_add', (req, res, next) => {
 
     let selected_link = 'ADMIN';
     let admin_link = '';
-    res.render('admin_venue_add', selected_link, admin_link )
+    res.render('admin_venue_add', { selected_link, admin_link })
 
 });
 
@@ -77,11 +77,11 @@ router.post('/admin_venue_submit', (req, res, next) => {
       .transacting(t)
       .returning('ven_id')
       .insert({
-        ven_name: req.body.venue_id, 
-        ven_address_1: show_date, 
-        ven_address_2: show_time, 
-        ven_city: req.body.show_ticket_link, 
-        ven_state: req.body.show_info,
+        ven_name: req.body.ven_name, 
+        ven_address_1: req.body.ven_address_1, 
+        ven_address_2: req.body.ven_address_2, 
+        ven_city: req.body.ven_city, 
+        ven_state: req.body.ven_state,
         ven_postal: req.body.ven_postal,
         ven_phone: req.body.ven_phone,
         ven_web: req.body.ven_web,
@@ -141,10 +141,10 @@ router.get('/admin_venue_edit/:id', (req, res, next) => {
 // update venue record and render confirmation page
 let venue_update_id;
 router.post('/admin_venue_update', (req, res, next) => {
-  venue_update_id = Number(req.body.show_id);
+  venue_update_id = Number(req.body.ven_id);
   console.log('venue_update_id: ' + venue_update_id)
   knex('venues')
-    .where('ven_id', Number(req.body.show_id))
+    .where('ven_id', Number(req.body.ven_id))
     .first()
     .then((venues) => {
       if (!venues) {
@@ -153,8 +153,8 @@ router.post('/admin_venue_update', (req, res, next) => {
       return knex('venues')
         .update({ 
             ven_name: req.body.venue_id, 
-            ven_address_1: show_date, 
-            ven_address_2: show_time, 
+            ven_address_1: req.body.ven_address_1, 
+            ven_address_2: req.body.ven_address_2, 
             ven_city: req.body.show_ticket_link, 
             ven_state: req.body.show_info,
             ven_postal: req.body.ven_postal,

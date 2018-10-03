@@ -16,7 +16,7 @@
             <tr>
                 <td colspan="2">
                     <div class="div_admin_button">
-                        <a href="/admin_venue_add"><button>ADD NEW SHOW</button></a>&nbsp;
+                        <a href="/admin_venue_add"><button>ADD NEW VENUE</button></a>&nbsp;
                     </div>
                 </td>
             </tr>
@@ -26,21 +26,17 @@
             <table class="table_admin_container">
                 <tr>
                     <td class="td_shows_left">
-                        <div class="div_shows_venue"><%= venues[i].ven_name %></div>
-                        <div class="div_shows_address"><%= venues[i].ven_address_1 %>
-                        <% if (venues[i].ven_address_2) { %>
-                            <br/><%= venues[i].ven_address_1 %>
-                        <% } %>
-                        
-                        <br/><%= venues[i].ven_city %>, <%= venues[i].ven_state %> <%= venues[i].ven_postal %>
-                        <br/><%= venues[i].ven_phone %> | <a href="<%= venues[i].ven_web %>" target="_blank">Website</a></div>
+                        <div class="div_admin_venue_left"><%= venues[i].ven_name %></div>
                         <div class="div_shows_ven_desc"><%= venues[i].ven_desc %></div>
                     </td>
                     <td class="td_shows_right">
-                        <div class="div_shows_date"></div>
-                        <div class="div_shows_info"></div>
-                        <div class="div_shows_info"></div>
-                        <div class="div_shows_blog"></div>
+                        <div class="div_admin_venue_right"><%= venues[i].ven_address_1 %>
+                            <% if (venues[i].ven_address_2) { %>
+                                <br/><%= venues[i].ven_address_1 %>
+                            <% } %>
+                        <br/><%= venues[i].ven_city %>, <%= venues[i].ven_state %> <%= venues[i].ven_postal %>
+                        <br/><%= venues[i].ven_phone %>
+                        <br/><%= venues[i].ven_web %></div>
                     </td>
                 </tr>
                 <tr>

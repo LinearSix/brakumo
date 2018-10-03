@@ -36,7 +36,16 @@
                             </select>
                         </div>
                         <div class="div_admin_input">
+                            <%
+                                let monthNames = [
+                                    "January", "February", "March",
+                                    "April", "May", "June", "July",
+                                    "August", "September", "October",
+                                    "November", "December"
+                                ];
+                            %>
                             <select name="show_month">
+                                <option selected value="<%= shows[0].show_date.getMonth() + 1 %>"><%= monthNames[shows[0].show_date.getMonth()] %></option>
                                 <option value="01">Jan</option>
                                 <option value="02">Feb</option>
                                 <option value="03">Mar</option>
@@ -51,6 +60,7 @@
                                 <option value="12">Dec</option>
                             </select>
                             <select name="show_day">
+                                <option selected value="<%= shows[0].show_date.getDate() %>"><%= shows[0].show_date.getDate() %></option>
                                 <option value="01">01</option>
                                 <option value="02">02</option>
                                 <option value="03">03</option>
@@ -84,6 +94,7 @@
                                 <option value="31">31</option>
                             </select>
                             <select name="show_year">
+                                <option selected value="<%= shows[0].show_date.getFullYear() %>"><%= shows[0].show_date.getFullYear() %></option>
                                 <option value="2018">2018</option>
                                 <option value="2019">2019</option>
                                 <option value="2020">2020</option>
@@ -98,6 +109,7 @@
                         </div>
                         <div class="div_admin_input">
                             <select name="show_hour">
+                                <option selected value="<%= shows[0].show_time.substring(0, 2) %>"><%= shows[0].show_time.substring(0, 2) %></option>
                                 <option value="00">midnight</option>
                                 <option value="01">1am</option>
                                 <option value="02">2am</option>
@@ -124,6 +136,7 @@
                                 <option value="23">11pm</option>
                             </select>
                             <select name="show_minute">
+                                <option selected value="<%= shows[0].show_time.substring(3, 5) %>"><%= shows[0].show_time.substring(3, 5) %></option>
                                 <option value="00">00</option>
                                 <option value="15">15</option>
                                 <option value="30">30</option>
