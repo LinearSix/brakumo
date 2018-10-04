@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/nav.css" charset="utf-8">
+    <link rel="stylesheet" href="/blog.css" charset="utf-8">
+    <link rel="stylesheet" href="/admin.css" charset="utf-8">
+    <title>Brakumo - Add New Show</title>
+</head>
+<body class="bg_admin_img">
+    <% include partials/div_nav_bar.ejs %>
+    <br/><div class="div_blog_container">
+        <form action="/admin_blog_submit" method="POST">
+            <table class="table_login_container">
+                <tr>
+                    <td class="td_blog_left">
+                        <div class="div_admin_label">Title</div>
+                        <div class="div_admin_label">Date</div>
+                        <div class="div_admin_label">Show Reference</div>
+                        <div class="div_admin_label">Content</div>
+                    </td>
+                    <td class="td_blog_right">
+                        <div class="div_admin_input"><input type="text" size="42" name="blog_title">
+                        <div class="div_admin_input">
+                            <select name="blog_month">
+                                <option value="" disabled selected>Month</option>
+                                <option value="01">Jan</option>
+                                <option value="02">Feb</option>
+                                <option value="03">Mar</option>
+                                <option value="04">Apr</option>
+                                <option value="05">May</option>
+                                <option value="06">Jun</option>
+                                <option value="07">Jul</option>
+                                <option value="08">Aug</option>
+                                <option value="09">Sep</option>
+                                <option value="10">Oct</option>
+                                <option value="11">Nov</option>
+                                <option value="12">Dec</option>
+                            </select>
+                            <select name="blog_day">
+                                <option value="" disabled selected>Day</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                            <select name="blog_year">
+                                <option value="" disabled selected>Year</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                            </select>
+                        </div>
+                        <div class="div_admin_input">
+                            <select name="blog_show_id">
+                                    <option value="" disabled selected>Optional Show Link</option>
+                                <% for (let j=0; j<shows.length; j++) { %>
+                                    <option value="<%= shows[j].show_id %>"><%= shows[j].ven_name %> / <%= shows[j].show_date.toDateString() %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <div class="div_admin_input">
+                                <textarea name="blog_content" rows="10" cols="40" maxlength="1000"
+                                wrap="hard"></textarea>
+                            </div>
+                    </td>
+                </tr>
+                <tr><td colspan="2">
+                    <div class="div_admin_button">
+                        <button type="submit">ADD BLOG</button>
+                    </div>
+                </td></tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

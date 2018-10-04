@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/nav.css" charset="utf-8">
+    <link rel="stylesheet" href="/admin.css" charset="utf-8">
+    <link rel="stylesheet" href="/blog.css" charset="utf-8">
+    <title>Brakumo - Blog Admin</title>
+</head>
+<body class="bg_admin_img">
+    <% include partials/div_nav_bar.ejs %>
+    <br/><div class="div_blog_container">
+        <table class="table_admin_container">
+            <tr>
+                <td colspan="2">
+                    <div class="div_admin_button">
+                        <a href="/admin_blog_add"><button>ADD NEW BLOG</button></a>&nbsp;
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <% for (i=0; i<blogs.length; i++) { %>
+            <table class="table_admin_container">
+                <tr>
+                    <td class="td_blog_left">
+                        <div class="div_blog_title"><%= blogs[i].blog_title %></div>
+                        <% if (blogs[i].show_id) { %>
+                            <div class="div_blog_reference"> ~ in reference to the show on</div>
+                            <div class="div_blog_venue"><%= blogs[i].show_date.toDateString() %>
+                            <br/>at <%= blogs[i].ven_name %></div>
+                        <% } %>
+                    </td>
+                    <td class="td_blog_right">
+                        <div class="div_blog_date"><%= blogs[i].blog_date.toDateString() %></div>
+                        <div class="div_blog_content"><%= blogs[i].blog_content %></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="div_admin_button">
+                            <a href="/admin_blog_edit/<%=blogs[i].blog_id %>"><button>EDIT</button></a>&nbsp;
+                            <a href="/admin_blog_delete/<%=blogs[i].blog_id %>"><button>DELETE</button></a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        <% } %>
+    </div>
+</body>
+</html>
