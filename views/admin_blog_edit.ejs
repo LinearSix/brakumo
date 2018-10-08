@@ -16,23 +16,14 @@
             <input type="hidden" name="blog_id" value="<%= blogs[0].blog_id %>">
             <table class="table_admin_container">
                 <tr>
-                    <td class="td_shows_left">
+                    <td class="td_blog_left">
                         <div class="div_admin_label">Title</div>
                         <div class="div_admin_label">Date</div>
                         <div class="div_admin_label">Show Reference</div>
                         <div class="div_admin_label">Content</div>
                     </td>
-                    <td class="td_shows_right">
-                        <div class="div_admin_input">
-                            <select name="venue_id">
-                                <% for (let j=0; j<venues.length; j++) { %>
-                                    <% if (shows[0].venue_id === venues[j].ven_id) { %>
-                                        <option selected value="<%= venues[j].ven_id %>"><%= venues[j].ven_name %></option>
-                                    <% } else { %>
-                                        <option value="<%= venues[j].ven_id %>"><%= venues[j].ven_name %></option>
-                                    <% } %>
-                                <% } %>
-                            </select>
+                    <td class="td_blog_right">
+                        <div class="div_admin_input"><input type="text" size="42" name="blog_title" value="<%= blogs[0].blog_title %>">
                         </div>
                         <div class="div_admin_input">
                             <%
@@ -43,8 +34,8 @@
                                     "November", "December"
                                 ];
                             %>
-                            <select name="show_month">
-                                <option selected value="<%= shows[0].show_date.getMonth() + 1 %>"><%= monthNames[shows[0].show_date.getMonth()] %></option>
+                            <select name="blog_month">
+                                <option selected value="<%= blogs[0].blog_date.getMonth() + 1 %>"><%= monthNames[blogs[0].blog_date.getMonth()] %></option>
                                 <option value="01">Jan</option>
                                 <option value="02">Feb</option>
                                 <option value="03">Mar</option>
@@ -58,8 +49,8 @@
                                 <option value="11">Nov</option>
                                 <option value="12">Dec</option>
                             </select>
-                            <select name="show_day">
-                                <option selected value="<%= shows[0].show_date.getDate() %>"><%= shows[0].show_date.getDate() %></option>
+                            <select name="blog_day">
+                                <option selected value="<%= blogs[0].blog_date.getDate() %>"><%= blogs[0].blog_date.getDate() %></option>
                                 <option value="01">01</option>
                                 <option value="02">02</option>
                                 <option value="03">03</option>
@@ -92,8 +83,8 @@
                                 <option value="30">30</option>
                                 <option value="31">31</option>
                             </select>
-                            <select name="show_year">
-                                <option selected value="<%= shows[0].show_date.getFullYear() %>"><%= shows[0].show_date.getFullYear() %></option>
+                            <select name="blog_year">
+                                <option selected value="<%= blogs[0].blog_date.getFullYear() %>"><%= blogs[0].blog_date.getFullYear() %></option>
                                 <option value="2018">2018</option>
                                 <option value="2019">2019</option>
                                 <option value="2020">2020</option>
@@ -107,46 +98,19 @@
                             </select>
                         </div>
                         <div class="div_admin_input">
-                            <select name="show_hour">
-                                <option selected value="<%= shows[0].show_time.substring(0, 2) %>"><%= shows[0].show_time.substring(0, 2) %></option>
-                                <option value="00">midnight</option>
-                                <option value="01">1am</option>
-                                <option value="02">2am</option>
-                                <option value="03">3am</option>
-                                <option value="04">4am</option>
-                                <option value="05">5am</option>
-                                <option value="06">6am</option>
-                                <option value="07">7am</option>
-                                <option value="08">8am</option>
-                                <option value="09">9am</option>
-                                <option value="10">10am</option>
-                                <option value="11">11am</option>
-                                <option value="12">noon</option>
-                                <option value="13">1pm</option>
-                                <option value="14">2pm</option>
-                                <option value="15">3pm</option>
-                                <option value="16">4pm</option>
-                                <option value="17">5pm</option>
-                                <option value="18">6pm</option>
-                                <option value="19">7pm</option>
-                                <option value="20">8pm</option>
-                                <option value="21">9pm</option>
-                                <option value="22">10pm</option>
-                                <option value="23">11pm</option>
+                            <select name="blog_show_id">
+                                <% for (let j=0; j<shows.length; j++) { %>
+                                    <% if (blogs[0].blog_show_id === shows[j].show_id) { %>
+                                        <option selected value="<%= shows[j].show_id %>"><%= shows[j].show_date.toDateString() %></option>
+                                    <% } else { %>
+                                        <option value="<%= shows[j].show_id %>"><%= shows[j].show_date.toDateString() %></option>
+                                    <% } %>
+                                <% } %>
                             </select>
-                            <select name="show_minute">
-                                <option selected value="<%= shows[0].show_time.substring(3, 5) %>"><%= shows[0].show_time.substring(3, 5) %></option>
-                                <option value="00">00</option>
-                                <option value="15">15</option>
-                                <option value="30">30</option>
-                                <option value="45">45</option>
-                            </select>
-                        </div>
-                        <div class="div_admin_input"><input type="text" size="42" name="show_ticket_link" value="<%= shows[0].show_ticket_link %>">
                         </div>
                         <div class="div_admin_input">
-                                <textarea name="show_info" rows="10" cols="40" maxlength="1000"
-                                wrap="hard"><%= shows[0].show_info %></textarea>
+                                <textarea name="blog_content" rows="10" cols="40" maxlength="1000"
+                                wrap="hard"><%= blogs[0].blog_content %></textarea>
                             </div>
                     </td>
                 </tr>

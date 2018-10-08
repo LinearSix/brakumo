@@ -488,7 +488,7 @@ router.get('/admin_blog_edit/:id', (req, res, next) => {
         .then((shows) => {
         let selected_link = 'ADMIN';
         let admin_link;
-        res.render('admin_show_edit', { shows, blogs, selected_link, admin_link })
+        res.render('admin_blog_edit', { shows, blogs, selected_link, admin_link })
         })
     })
     .catch((err) => {
@@ -499,12 +499,12 @@ router.get('/admin_blog_edit/:id', (req, res, next) => {
 // update show record and render confirmation page
 let blog_update_id;
 router.post('/admin_blog_update', (req, res, next) => {
-  blog_update_id = Number(req.body.show_id);
+  blog_update_id = Number(req.body.blog_id);
   console.log('blog_update_id: ' + blog_update_id)
   let blog_date = `${req.body.blog_year}-${req.body.blog_month}-${req.body.blog_day}`
   console.log('blog_date: ' + blog_date)
   knex('blogs')
-    .where('blog_id', Number(req.body.show_id))
+    .where('blog_id', Number(req.body.blog_id))
     .first()
     .then((blogs) => {
       if (!blogs) {
@@ -514,7 +514,7 @@ router.post('/admin_blog_update', (req, res, next) => {
         .update({ 
             blog_show_id: req.body.blog_show_id, 
             blog_date: blog_date, 
-            blog_title: eq.body.blog_title, 
+            blog_title: req.body.blog_title, 
             blog_content: req.body.blog_content
         }, '*')
         .where('blog_id', Number(req.body.blog_id));
