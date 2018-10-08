@@ -390,8 +390,8 @@ router.get('/admin_show_delete/:id', (req, res, next) => {
 // list all admin blog information
 router.get('/admin_blogs', (req, res, next) => {
     knex('blogs')
-    .innerJoin('shows', 'show_id', 'blog_show_id')
-    .innerJoin('venues', 'ven_id', 'venue_id')
+    .join('shows', 'show_id', 'blog_show_id')
+    .join('venues', 'ven_id', 'venue_id')
     .orderBy('blog_date', 'desc')
     .then((blogs) => {
         let selected_link = 'ADMIN';

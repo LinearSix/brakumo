@@ -29,6 +29,7 @@ const route_blog = require('./routes/route_blog');
 const route_merch = require('./routes/route_merch');
 const route_contact = require('./routes/route_contact');
 const route_press = require('./routes/route_press');
+const route_gallery = require('./routes/route_gallery');
 const route_mail = require('./routes/route_mail');
 const route_admin = require('./routes/route_admin');
 
@@ -39,6 +40,7 @@ app.use(route_blog);
 app.use(route_merch);
 app.use(route_contact);
 app.use(route_press);
+app.use(route_gallery);
 app.use(route_mail);
 app.use(route_admin);
 
