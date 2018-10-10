@@ -29,13 +29,16 @@
                     <td class="td_shows_right">
                         <div class="div_shows_date"><%= shows[i].show_date.toDateString() %> - <%= shows[i].show_time.substring(0, 5) %></div>
                         <div class="div_shows_info"><%= shows[i].show_info %></div>
-                        <br/>
                         <% if (shows[i].show_ticket_link !== 'NA') { %>
                             <a href="<%= shows[i].show_ticket_link %>" target="_blank"><div class="div_shows_tix">TICKETS</div></a>
                         <% } else { %>
                             <div class="div_shows_info">Advance tickets not available</div>
                         <% } %>
-                        <br/><a href="blog/<%= shows[i].show_id %>"><div class="div_shows_blog">SHOW BLOG</div></a>
+                        <% for (let j=0; j<blogs.length; j++) { %>
+                            <% if (blogs[j].blog_show_id === shows[i].show_id) { %>
+                                <u><a href="blog/<%= blogs[j].blog_id %>"><div class="div_shows_blog">SHOW BLOG - <%= blogs[j].blog_date.toDateString() %></div></a></u>
+                            <% } %>
+                        <% } %>
                     </td>
                 </tr>
             </table>

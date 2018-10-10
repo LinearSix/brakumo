@@ -22,4 +22,22 @@ router.get('/blog', (req, res, next) => {
     });
 });
 
+// list all blogs
+router.get('/blog/:id', (req, res, next) => {
+    knex.from('blogs')
+      .where('blog_id', '=', req.params.id)
+      .then((blogs) => {
+        return knex.from('shows')
+        .innerJoin('venues', 'venue_id', 'ven_id')
+        .orderBy('show_date', 'desc')
+        .then((shows) => {
+          let selected_link = 'BLOG';
+          res.render('blog', { blogs, shows, selected_link });
+        })
+      })
+      .catch((err) => {
+        next(err);
+      });
+  });
+
 module.exports = router;
