@@ -30,7 +30,7 @@ router.get('/shows', (req, res, next) => {
         .orderBy('blog_date', 'desc')
         .then((blogs) => {
             let selected_link = 'SHOWS';
-        res.render('shows', { shows, blogs, selected_link })
+            res.render('shows', { shows, blogs, selected_link })
         })
       })
       .catch((err) => {
@@ -44,8 +44,12 @@ router.get('/shows/:id', (req, res, next) => {
     .innerJoin('venues', 'venue_id', 'ven_id')
     .where('show_id', '=', req.params.id)
     .then((shows) => {
-        let selected_link = '';
-        res.render('shows', { shows, selected_link })
+        return knex.from('blogs')
+        .orderBy('blog_date', 'desc')
+        .then((blogs) => {
+            let selected_link = '';
+            res.render('shows', { shows, blogs, selected_link })
+        })
     })
     .catch((err) => {
         next(err);

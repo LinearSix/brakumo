@@ -19,7 +19,7 @@
                         <div class="div_shows_venue"><%= shows[i].ven_name %></div>
                         <div class="div_shows_address"><%= shows[i].ven_address_1 %>
                         <% if (shows[i].ven_address_2) { %>
-                            <br/><%= shows[i].ven_address_1 %>
+                            <br/><%= shows[i].ven_address_2 %>
                         <% } %>
                         
                         <br/><%= shows[i].ven_city %>, <%= shows[i].ven_state %> <%= shows[i].ven_postal %>
@@ -36,7 +36,7 @@
                         <% } %>
                         <% for (let j=0; j<blogs.length; j++) { %>
                             <% if (blogs[j].blog_show_id === shows[i].show_id) { %>
-                                <u><a href="blog/<%= blogs[j].blog_id %>"><div class="div_shows_blog">SHOW BLOG - <%= blogs[j].blog_date.toDateString() %></div></a></u>
+                                <u><a href="/blog/<%= blogs[j].blog_id %>"><div class="div_shows_blog">SHOW BLOG - <%= blogs[j].blog_date.toDateString() %></div></a></u>
                             <% } %>
                         <% } %>
                     </td>
