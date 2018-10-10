@@ -26,10 +26,14 @@
                 <tr>
                     <td class="td_blog_left">
                         <div class="div_blog_title"><%= blogs[i].blog_title %></div>
-                        <% if (blogs[i].show_id) { %>
-                            <div class="div_blog_reference"> ~ in reference to the show on</div>
-                            <div class="div_blog_venue"><%= blogs[i].show_date.toDateString() %>
-                            <br/>at <%= blogs[i].ven_name %></div>
+                        <% if (blogs[i].blog_show_id) { %>
+                            <% for (let j=0; j<shows.length; j++) { %>
+                                <% if (blogs[i].blog_show_id === shows[j].show_id) { %>
+                                    <div class="div_blog_reference"> ~ in reference to the show on</div>
+                                    <div class="div_blog_venue"><%= shows[j].show_date.toDateString() %>
+                                    <br/>at <%= shows[j].ven_name %></div>
+                                <% } %>
+                            <% } %>
                         <% } %>
                     </td>
                     <td class="td_blog_right">

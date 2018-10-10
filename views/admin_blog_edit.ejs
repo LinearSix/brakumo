@@ -99,6 +99,7 @@
                         </div>
                         <div class="div_admin_input">
                             <select name="blog_show_id">
+                                <option value="NULL">No Show Link</option>
                                 <% for (let j=0; j<shows.length; j++) { %>
                                     <% if (blogs[0].blog_show_id === shows[j].show_id) { %>
                                         <option selected value="<%= shows[j].show_id %>"><%= shows[j].show_date.toDateString() %></option>

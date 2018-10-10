@@ -23,9 +23,7 @@ router.post('/admin_home', (req, res, next) => {
     .where('admin_password', req.body.admin_password)
     .then((admin) => {
         let login = admin.toString();
-        // console.log('login: ' + login);
         if (login === '') {
-            // console.log('here');
             let selected_link = '';
             let admin_link = '';
             res.redirect('admin', { selected_link })
@@ -142,7 +140,6 @@ router.get('/admin_venue_edit/:id', (req, res, next) => {
 let venue_update_id;
 router.post('/admin_venue_update', (req, res, next) => {
   venue_update_id = Number(req.body.ven_id);
-  console.log('venue_update_id: ' + venue_update_id)
   knex('venues')
     .where('ven_id', Number(req.body.ven_id))
     .first()
@@ -261,7 +258,6 @@ router.post('/admin_show_submit', (req, res, next) => {
       })
       .then(t.commit)
       .then(() => {
-          // console.log(assassin_id);
           res.redirect('/admin_shows/' + show_insert_id);
       })
       .catch((err) => {
@@ -321,11 +317,8 @@ router.get('/admin_show_edit/:id', (req, res, next) => {
 let show_update_id;
 router.post('/admin_show_update', (req, res, next) => {
   show_update_id = Number(req.body.show_id);
-  console.log('show_update_id: ' + show_update_id)
   let show_date = `${req.body.show_year}-${req.body.show_month}-${req.body.show_day}`
-  console.log('show_date: ' + show_date)
   let show_time = `${req.body.show_hour}:${req.body.show_minute}:00`
-  console.log('show_time: ' + show_time)
   knex('shows')
     .where('show_id', Number(req.body.show_id))
     .first()
@@ -387,21 +380,24 @@ router.get('/admin_show_delete/:id', (req, res, next) => {
 // ######################### BLOGS ADMIN ################################
 // ######################################################################
 
-// list all admin blog information
+// list all admmin blog information
 router.get('/admin_blogs', (req, res, next) => {
-    knex('blogs')
-    .join('shows', 'show_id', 'blog_show_id')
-    .join('venues', 'ven_id', 'venue_id')
-    .orderBy('blog_date', 'desc')
-    .then((blogs) => {
-        let selected_link = 'ADMIN';
-        let admin_link = 'ADMIN_BLOGS';
-        res.render('admin_blogs', { blogs, selected_link, admin_link })
-    })
-    .catch((err) => {
+    knex.from('blogs')
+      .orderBy('blog_date', 'desc')
+      .then((blogs) => {
+        return knex.from('shows')
+        .innerJoin('venues', 'venue_id', 'ven_id')
+        .orderBy('show_date', 'desc')
+        .then((shows) => {
+            let selected_link = 'ADMIN';
+            let admin_link = 'ADMIN_BLOGS';
+            res.render('admin_blogs', { blogs, shows, selected_link, admin_link })
+        })
+      })
+      .catch((err) => {
         next(err);
-    });
-});
+      });
+  });
 
 // ######################### CREATE BLOG ################################
 
@@ -457,34 +453,32 @@ router.post('/admin_blog_submit', (req, res, next) => {
 
 // ######################### UPDATE BLOG ################################
 
-// list selected show after selecting for update
+// list selected blog after selecting for update
 router.get('/admin_blogs/:id', (req, res, next) => {
-    knex('blogs')
-    .innerJoin('shows', 'show_id', 'blog_show_id')
-    .innerJoin('venues', 'venue_id', 'ven_id')
+    knex.from('blogs')
     .where('blog_id', '=', req.params.id)
     .then((blogs) => {
-        return knex('shows')
+        return knex.from('shows')
+        .innerJoin('venues', 'venue_id', 'ven_id')
         .orderBy('show_date', 'desc')
         .then((shows) => {
-        let selected_link = 'ADMIN';
-        let admin_link;
-        res.render('admin_blogs', { shows, blogs, selected_link, admin_link })
+            let selected_link = 'ADMIN';
+            let admin_link;
+            res.render('admin_blogs', { blogs, shows, selected_link, admin_link })
         })
     })
     .catch((err) => {
-        next(err);
+    next(err);
     });
-});
+  });
 
 // list selected blog information for editing
 router.get('/admin_blog_edit/:id', (req, res, next) => {
     knex('blogs')
-    .innerJoin('shows', 'show_id', 'blog_show_id')
     .where('blog_id', '=', req.params.id)
     .then((blogs) => {
         return knex('shows')
-        .orderBy('show_date')
+        .orderBy('show_date', 'desc')
         .then((shows) => {
         let selected_link = 'ADMIN';
         let admin_link;
@@ -500,9 +494,11 @@ router.get('/admin_blog_edit/:id', (req, res, next) => {
 let blog_update_id;
 router.post('/admin_blog_update', (req, res, next) => {
   blog_update_id = Number(req.body.blog_id);
-  console.log('blog_update_id: ' + blog_update_id)
+  let blog_show_id = req.body.blog_show_id;
+  if (blog_show_id === 'NULL') {
+      blog_show_id = null;
+  }
   let blog_date = `${req.body.blog_year}-${req.body.blog_month}-${req.body.blog_day}`
-  console.log('blog_date: ' + blog_date)
   knex('blogs')
     .where('blog_id', Number(req.body.blog_id))
     .first()
@@ -512,7 +508,7 @@ router.post('/admin_blog_update', (req, res, next) => {
       };
       return knex('blogs')
         .update({ 
-            blog_show_id: req.body.blog_show_id, 
+            blog_show_id: blog_show_id, 
             blog_date: blog_date, 
             blog_title: req.body.blog_title, 
             blog_content: req.body.blog_content
