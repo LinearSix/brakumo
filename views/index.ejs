@@ -27,7 +27,13 @@
         <% for (i=0; i<shows.length; i++) { %>
         <div class="div_home_shows_spacer">&nbsp;</div>
         <div class="div_home_shows"><%= shows[i].show_date.toDateString() %></div>
-        <div class="div_home_shows"><%= shows[i].show_time %></div>
+        <div class="div_home_shows">
+            <% if (shows[i].show_time.substring(0, 2) > 12) { %>
+                <%= parseInt(Number(shows[i].show_time.substring(0, 2)) - 12, 10) %>:<%= shows[0].show_time.substring(3, 5) %>pm
+            <% } else { %>
+                <%= parseInt(shows[i].show_time.substring(0, 2), 10) %>:<%= shows[0].show_time.substring(3, 5) %>am
+            <% } %>
+        </div>
         <div class="div_home_shows"><%= shows[i].ven_name %></div>
         <div class="div_home_shows"><%= shows[i].ven_city %>, <%= shows[i].ven_state %></div>
         <div class="div_home_shows">
