@@ -29,9 +29,9 @@
                     <td class="td_shows_right">
                         <div class="div_shows_date"><%= shows[i].show_date.toDateString() %> - 
                             <% if (shows[i].show_time.substring(0, 2) > 12) { %>
-                                <%= parseInt(Number(shows[i].show_time.substring(0, 2)) - 12, 10) %>:<%= shows[0].show_time.substring(3, 5) %>pm
+                                <%= parseInt(Number(shows[i].show_time.substring(0, 2)) - 12, 10) %>:<%= shows[i].show_time.substring(3, 5) %>pm
                             <% } else { %>
-                                <%= parseInt(shows[i].show_time.substring(0, 2), 10) %>:<%= shows[0].show_time.substring(3, 5) %>am
+                                <%= parseInt(shows[i].show_time.substring(0, 2), 10) %>:<%= shows[i].show_time.substring(3, 5) %>am
                             <% } %>
                         </div>
                         <div class="div_shows_info"><%= shows[i].show_info %></div>
