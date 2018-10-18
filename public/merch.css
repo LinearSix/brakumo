@@ -5,10 +5,123 @@ body, html {
     overflow: visible;
 }
 /* large background image with linear gradient for shows page */
-.bg_press_img {
+.bg_merch_img {
     background-image: linear-gradient(135deg, rgba(0, 0, 0, 1.0)7%, rgba(0, 0, 0, 0.5)60%, rgba(0, 0, 0, 1.0)90%),
                   url("drumbas_close.jpg");
     background-size: 1600px; 
+}
+.table_merch_container {
+    width: 100%;
+    border-bottom: white 1px solid;
+}
+.td_merch_left {
+    width: 50%;
+    padding: 13px;
+    text-align: right;
+    vertical-align: top;
+    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    color: white;
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 0px 0px 1px black;
+    /* border: rgb(9, 255, 0) 1px solid; */
+}
+.td_merch_right {
+    width: 50%;
+    border-left: white 1px solid;
+    padding: 13px;
+    text-align: left;
+    vertical-align: top;
+    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    color: white;
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 0px 0px 1px black;
+    /* border: rgb(9, 255, 0) 1px solid; */
+}
+.div_merch_img {
+    /* float: left; */
+    width: 100%;
+    text-align: right;
+    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 0px 0px 1px black;
+    /* border: white 1px solid; */
+}
+.div_merch_album {
+    /* float: left; */
+    width: 100%;
+    text-align: right;
+    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 0px 0px 1px black;
+    /* border: white 1px solid; */
+}
+#img_drumbas {
+    width: 500px;
+}
+#img_album {
+    width: 300px;
+    margin-right: 25px;
+    border: darkblue 2px solid;
+    box-shadow: 5px 5px 0px gray;
+}
+.div_merch_item {
+    /* float: left; */
+    width: 100%;
+    padding-top: 4px;
+    text-align: right;
+    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    color: white;
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 0px 0px 1px black;
+    /* border: white 1px solid; */
+}
+.div_album_title {
+    /* float: left; */
+    width: 100%;
+    padding-top: 4px;
+    text-align: left;
+    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    color: white;
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 0px 0px 1px black;
+    /* border: white 1px solid; */
+}
+.div_merch_info {
+    float: right;
+    width: 300px;
+    padding-top: 4px;
+    /* height: 20px; */
+    text-align: right;
+    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 14px;
+    font-style: italic;
+    color: white;
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 0px 0px 1px black;
+    /* border: white 1px solid; */
+}
+.div_album_info {
+    width: 300px;
+    padding-top: 4px;
+    /* height: 20px; */
+    text-align: left;
+    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 14px;
+    font-style: italic;
+    color: white;
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 0px 0px 1px black;
+    /* border: white 1px solid; */
 }
 /* link styling */
 a {
@@ -22,11 +135,24 @@ a {
 .td_gallery {
     width: 10%;
 }
-img {
-    width: 600px;
+/* zoom css */
+* {box-sizing: border-box;}
+
+.img-zoom-container {
+  position: relative;
 }
-h5 {
-    font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 17px;
-    color: white;
+
+.img-zoom-lens {
+  position: absolute;
+  /* border: 1px solid #d4d4d4; */
+  /*set the size of the lens:*/
+  width: 40px;
+  height: 40px;
+}
+
+.img-zoom-result {
+  border: 1px solid #d4d4d4;
+  /*set the size of the result div:*/
+  width: 300px;
+  height: 300px;
 }

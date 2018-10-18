@@ -6,12 +6,113 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/nav.css" charset="utf-8">
     <link rel="stylesheet" href="/merch.css" charset="utf-8">
+    <link rel="stylesheet" href="/shows.css" charset="utf-8">
     <title>Brakumo - Merch</title>
 </head>
-<body class="bg_home_img">
+<body class="bg_merch_img">
     <% include partials/div_nav_bar.ejs %>
-    <br/>
-    <img src="drumbas_parts.jpg" alt="Drumbas Kit - $40,000"/>
-    <h5>Complete Drumbas Kit (unfinished wood) - $40,000</h5>
+    <p>&nbsp;</p>
+    <script>
+    function imageZoom(imgID, resultID) {
+        var img, lens, result, cx, cy;
+        img = document.getElementById(imgID);
+        result = document.getElementById(resultID);
+        /*create lens:*/
+        lens = document.createElement("DIV");
+        lens.setAttribute("class", "img-zoom-lens");
+        /*insert lens:*/
+        img.parentElement.insertBefore(lens, img);
+        /*calculate the ratio between result DIV and lens:*/
+        cx = result.offsetWidth / lens.offsetWidth;
+        cy = result.offsetHeight / lens.offsetHeight;
+        /*set background properties for the result DIV*/
+        result.style.backgroundImage = "url('" + img.src + "')";
+        result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+        /*execute a function when someone moves the cursor over the image, or the lens:*/
+        lens.addEventListener("mousemove", moveLens);
+        img.addEventListener("mousemove", moveLens);
+        /*and also for touch screens:*/
+        lens.addEventListener("touchmove", moveLens);
+        img.addEventListener("touchmove", moveLens);
+        function moveLens(e) {
+          var pos, x, y;
+          /*prevent any other actions that may occur when moving over the image*/
+          e.preventDefault();
+          /*get the cursor's x and y positions:*/
+          pos = getCursorPos(e);
+          /*calculate the position of the lens:*/
+          x = pos.x - (lens.offsetWidth / 2);
+          y = pos.y - (lens.offsetHeight / 2);
+          /*prevent the lens from being positioned outside the image:*/
+          if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+          if (x < 0) {x = 0;}
+          if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+          if (y < 0) {y = 0;}
+          /*set the position of the lens:*/
+          lens.style.left = x + "px";
+          lens.style.top = y + "px";
+          /*display what the lens "sees":*/
+          result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+        }
+        function getCursorPos(e) {
+          var a, x = 0, y = 0;
+          e = e || window.event;
+          /*get the x and y positions of the image:*/
+          a = img.getBoundingClientRect();
+          /*calculate the cursor's x and y coordinates, relative to the image:*/
+          x = e.pageX - a.left;
+          y = e.pageY - a.top;
+          /*consider any page scrolling:*/
+          x = x - window.pageXOffset;
+          y = y - window.pageYOffset;
+          return {x : x, y : y};
+        }
+      }
+    </script>
+    <table class="table_merch_container">
+        <tr>
+            <td class="td_merch_left">
+                <div class="img-zoom-container">
+                    <img id="myimage" src="drumbas_parts.jpg" width="300" height="240" alt="Drumbas Kit - $40,000"/>
+                </div>
+                <div class="div_merch_item">
+                    Complete Drumbas Kit
+                    <br/>(unfinished wood)
+                </div>
+                <div class="div_merch_item">
+                    $50,000
+                </div>
+                <div class="div_merch_info">
+                    <p>Unless otherwise specified, kit comes complete with 6 GFS single coil pickups and D'Addario Pro Steel .080 strings</p>
+                </div>
+            </td>
+            <td class="td_merch_right">
+                <div id="myresult" class="img-zoom-result"></div>
+                <div class="div_album_info">Cursor over image at left to zoom</div>
+            </td>
+        </tr>
+    </table>
+    <table class="table_merch_container">
+        <tr>
+            <td class="td_merch_left">
+                <div class="div_merch_album"><img id="img_album" src="pay_the_machine.jpg" alt="Pay The Machine (Vinyl) - $25"/></div>
+            </td>
+            <td class="td_merch_right">
+                <div class="div_album_title">
+                    Pay the Machine
+                    <br/>(Made-up Vinyl LP)
+                    <p>$25</p>
+                </div>
+                <div class="div_album_info">
+                    <p>10 imaginary studio tracks from Brakumo.
+                        <br/>Available on virtual vinyl only.
+                    </p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <script>
+        imageZoom("myimage", "myresult"); 
+    </script>
 </body>
 </html>
