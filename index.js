@@ -4,6 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 2222;
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
+const tumblr = require('tumblr.js');
 // const knex = require('./db/knex');
 
 // use body-parser middleware
@@ -31,6 +32,7 @@ const route_contact = require('./routes/route_contact');
 const route_press = require('./routes/route_press');
 const route_gallery = require('./routes/route_gallery');
 const route_mail = require('./routes/route_mail');
+const route_tumblr = require('./routes/route_tumblr');
 const route_admin = require('./routes/route_admin');
 
 // use express routes
@@ -42,6 +44,7 @@ app.use(route_contact);
 app.use(route_press);
 app.use(route_gallery);
 app.use(route_mail);
+app.use(route_tumblr);
 app.use(route_admin);
 
 // set redirect for users adding a /

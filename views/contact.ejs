@@ -12,27 +12,22 @@
     <% include partials/div_nav_bar.ejs %>
     <br/><div class="div_contact_container">
             <form action="contact_submit" method="post">
-                Name:<br>
-                <input type="text" name="name"><br>
-                E-mail:<br>
-                <input type="text" name="email"><br>
-                Comment:<br>
-                <input type="text" name="message" size="50"><br><br>
-                <input type="submit" value="Send">
-                <input type="reset" value="Reset">
-            </form>
-
                 <table class="table_contact_container">
                     <tr>
                         <td class="td_contact_left">
-                            <div class="div_contact_label">contact</div>
+                            <div class="div_contact_label">Name:</div>
+                            <div class="div_contact_label">Email:</div>
+                            <div class="div_contact_label">Comment:</div>
                         </td>
                         <td class="td_contact_right">
-                            <div class="div_contact_input">input</div>
+                            <div class="div_contact_input"><input type="text" name="name"></div>
+                            <div class="div_contact_input"><input type="text" name="email"></div>
+                            <div class="div_contact_input"><textarea name="comment" rows="10" cols="40" maxlength="1000"
+                                wrap="hard"></textarea></div>
                         </td>
                     </tr>
                 </table>
-
+            </form>
         </div>
 </body>
 </html>
