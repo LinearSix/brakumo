@@ -2,6 +2,7 @@
 ### A full-stack, data-driven band website
 
 ## User Stories
+* The site should be mobile friendly
 * The user should see a homepage with links to shows, press, blog, contact information, and a mailing list signup
 * The user should have access to a navigation bar containing all links on every page
 * The homepage should list current shows by default and not shows which have passed
