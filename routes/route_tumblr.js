@@ -56,11 +56,12 @@ const client = tumblr.createClient({ consumer_key: 'mkMkpLp82BUSaXbc0Afiwrc4XMMT
 router.get('/tumblr', (req, res, next) => {
 
     // Make the request
-    client.blogPosts('linearsix.tumblr.com', function (err, blogs) {
-    // console.log(data.blog)
+    client.blogPosts('linearsix.tumblr.com', { limit: 5, offset: 0 }, function (err, blogs) {
+        
     
         let dataObj = blogs.posts;
         let selected_link = '';
+        // console.log(dataObj);
         res.render('tumblr', { selected_link, dataObj });
     
     });

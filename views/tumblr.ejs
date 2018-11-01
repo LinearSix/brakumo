@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/nav.css" charset="utf-8">
     <link rel="stylesheet" href="/shows.css" charset="utf-8">
+    <link rel="stylesheet" href="/tumblr.css" charset="utf-8">
     <title>Brakumo - Blog</title>
 </head>
 <body class="bg_shows_img">
@@ -14,12 +15,11 @@
     <table class="table_shows_container">
         <tr>
             <td class="td_shows_left">
-                <div class="div_shows_ven_desc">
+                <div class="div_tumblr_left">
                     <% for (let tumblrObj in dataObj) { %>
                         <p>
                         <%= dataObj[tumblrObj].date %>
-                        <%= dataObj[tumblrObj].body %>
-                        <%= dataObj[tumblrObj].summary %>
+                        <%- dataObj[tumblrObj].body %>
                         </p>
                     <% } %>
                     
