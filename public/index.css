@@ -7,7 +7,7 @@
     /* large background image with linear gradient for homepage */
     .bg_home_img {
         background-image: linear-gradient(rgba(0, 0, 0, 1.0)12%, rgba(0, 0, 0, 0.01)25%, rgba(0, 0, 0, 1.0)70%),
-                      url("drumbas_main_bw.jpeg");
+                      url("drumbas_main_bw.jpg");
         background-size: 1600px; 
     }
     /* large background image with linear gradient for shows page */
@@ -111,7 +111,7 @@
     /* large background image with linear gradient for homepage */
     .bg_home_img {
         background-image: linear-gradient(rgba(0, 0, 0, 1.0)12%, rgba(0, 0, 0, 0.01)25%, rgba(0, 0, 0, 1.0)70%),
-                      url("drumbas_main_bw.jpeg");
+                      url("drumbas_main_bw.jpg");
         background-size: 1600px; 
     }
     /* large background image with linear gradient for shows page */
@@ -215,7 +215,7 @@
     /* large background image with linear gradient for homepage */
     .bg_home_img {
         background-image: linear-gradient(rgba(0, 0, 0, 1.0)12%, rgba(0, 0, 0, 0.01)25%, rgba(0, 0, 0, 1.0)70%),
-                      url("drumbas_main_bw.jpeg");
+                      url("drumbas_main_bw.jpg");
         background-size: 1600px; 
     }
     /* large background image with linear gradient for shows page */
