@@ -26,7 +26,7 @@ app.set('view engine', 'ejs')
 // set express routes
 const index = require('./routes');
 const route_shows = require('./routes/route_shows');
-const route_blog = require('./routes/route_blog');
+const route_drumbas = require('./routes/route_drumbas');
 const route_merch = require('./routes/route_merch');
 const route_contact = require('./routes/route_contact');
 const route_press = require('./routes/route_press');
@@ -38,7 +38,7 @@ const route_admin = require('./routes/route_admin');
 // use express routes
 app.use(index);
 app.use(route_shows);
-app.use(route_blog);
+app.use(route_drumbas);
 app.use(route_merch);
 app.use(route_contact);
 app.use(route_press);

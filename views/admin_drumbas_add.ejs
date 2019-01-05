@@ -5,37 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/nav.css" charset="utf-8">
-    <link rel="stylesheet" href="/blog.css" charset="utf-8">
+    <link rel="stylesheet" href="/drumbas.css" charset="utf-8">
     <link rel="stylesheet" href="/admin.css" charset="utf-8">
-    <title>Brakumo - Edit Blog</title>
+    <title>Brakumo - Add New Show</title>
 </head>
-<body class="bg_shows_img">
+<body class="bg_admin_img">
     <% include partials/div_nav_bar.ejs %>
-    <br/><div class="div_shows_container">
-        <form action="/admin_blog_update" method="POST">
-            <input type="hidden" name="blog_id" value="<%= blogs[0].blog_id %>">
-            <table class="table_admin_container">
+    <br/><div class="div_drumbas_container">
+        <form action="/admin_drumbas_submit" method="POST">
+            <table class="table_login_container">
                 <tr>
-                    <td class="td_blog_left">
+                    <td class="td_drumbas_left">
                         <div class="div_admin_label">Title</div>
                         <div class="div_admin_label">Date</div>
                         <div class="div_admin_label">Show Reference</div>
                         <div class="div_admin_label">Content</div>
                     </td>
-                    <td class="td_blog_right">
-                        <div class="div_admin_input"><input type="text" size="42" name="blog_title" value="<%= blogs[0].blog_title %>">
-                        </div>
+                    <td class="td_drumbas_right">
+                        <div class="div_admin_input"><input type="text" size="42" name="blog_title">
                         <div class="div_admin_input">
-                            <%
-                                let monthNames = [
-                                    "January", "February", "March",
-                                    "April", "May", "June", "July",
-                                    "August", "September", "October",
-                                    "November", "December"
-                                ];
-                            %>
                             <select name="blog_month">
-                                <option selected value="<%= blogs[0].blog_date.getMonth() + 1 %>"><%= monthNames[blogs[0].blog_date.getMonth()] %></option>
+                                <option value="" disabled selected>Month</option>
                                 <option value="01">Jan</option>
                                 <option value="02">Feb</option>
                                 <option value="03">Mar</option>
@@ -50,7 +40,7 @@
                                 <option value="12">Dec</option>
                             </select>
                             <select name="blog_day">
-                                <option selected value="<%= blogs[0].blog_date.getDate() %>"><%= blogs[0].blog_date.getDate() %></option>
+                                <option value="" disabled selected>Day</option>
                                 <option value="01">01</option>
                                 <option value="02">02</option>
                                 <option value="03">03</option>
@@ -84,8 +74,7 @@
                                 <option value="31">31</option>
                             </select>
                             <select name="blog_year">
-                                <option selected value="<%= blogs[0].blog_date.getFullYear() %>"><%= blogs[0].blog_date.getFullYear() %></option>
-                                <option value="2018">2018</option>
+                                <option value="" disabled selected>Year</option>
                                 <option value="2019">2019</option>
                                 <option value="2020">2020</option>
                                 <option value="2021">2021</option>
@@ -99,25 +88,21 @@
                         </div>
                         <div class="div_admin_input">
                             <select name="blog_show_id">
-                                <option value="NULL">No Show Link</option>
+                                    <option value="" disabled selected>Optional Show Link</option>
                                 <% for (let j=0; j<shows.length; j++) { %>
-                                    <% if (blogs[0].blog_show_id === shows[j].show_id) { %>
-                                        <option selected value="<%= shows[j].show_id %>"><%= shows[j].show_date.toDateString() %></option>
-                                    <% } else { %>
-                                        <option value="<%= shows[j].show_id %>"><%= shows[j].show_date.toDateString() %></option>
-                                    <% } %>
+                                    <option value="<%= shows[j].show_id %>"><%= shows[j].ven_name %> / <%= shows[j].show_date.toDateString() %></option>
                                 <% } %>
                             </select>
                         </div>
                         <div class="div_admin_input">
                                 <textarea name="blog_content" rows="10" cols="40" maxlength="1000"
-                                wrap="hard"><%= blogs[0].blog_content %></textarea>
+                                wrap="hard"></textarea>
                             </div>
                     </td>
                 </tr>
                 <tr><td colspan="2">
                     <div class="div_admin_button">
-                        <button type="submit">UPDATE</button>
+                        <button type="submit">ADD BLOG</button>
                     </div>
                 </td></tr>
             </table>

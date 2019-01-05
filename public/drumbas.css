@@ -5,7 +5,7 @@ body, html {
     overflow: visible;
 }
 /* large background image with linear gradient for shows page */
-.bg_blog_img {
+.bg_drumbas_img {
     background-image: linear-gradient(135deg, rgba(0, 0, 0, 1.0)7%, rgba(0, 0, 0, 0.5)60%, rgba(0, 0, 0, 1.0)90%),
                   url("drumbas_close.jpg");
     background-size: 1600px; 
@@ -15,18 +15,18 @@ a {
     color: white;
     text-decoration: none;
 }
-.div_blog_container {
+.div_drumbas_container {
     padding-top: 40px;
     width: 100%;
     height: 100%;
     overflow-y: scroll;
 }
 /* scrolling shows container */
-.table_blog_container {
+.table_drumbas_container {
     width: 100%;
 
 }
-.td_blog_left {
+.td_drumbas_left {
     width: 50%;
     padding: 13px;
     text-align: right;
@@ -38,7 +38,7 @@ a {
     text-shadow: 0px 0px 1px black;
     /* border: rgb(9, 255, 0) 1px solid; */
 }
-.td_blog_right {
+.td_drumbas_right {
     width: 50%;
     border-left: white 1px solid;
     padding: 13px;
@@ -52,7 +52,7 @@ a {
     /* border: rgb(9, 255, 0) 1px solid; */
 }
 /* show venue style */
-.div_blog_title {
+.div_drumbas_title {
     /* float: left; */
     width: 100%;  
     text-align: right;
@@ -65,7 +65,7 @@ a {
     /* border: white 1px solid; */
 }
 /* show address style */
-.div_blog_venue {
+.div_drumbas_venue {
     /* float: left; */
     width: 100%;
     text-align: right;
@@ -77,7 +77,7 @@ a {
     /* border: white 1px solid; */
 }
 /* show description style */
-.div_blog_reference {
+.div_drumbas_reference {
     float: right;
     width: 100%;
     /* height: 20px; */
@@ -91,7 +91,7 @@ a {
     /* border: white 1px solid; */
 }
 /* show date style */
-.div_blog_date {
+.div_drumbas_date {
     /* float: left; */
     width: 100%;
     padding-top: 2px;
@@ -104,7 +104,7 @@ a {
     /* border: white 1px solid; */
 }
 /* show date style */
-.div_blog_venue {
+.div_drumbas_venue {
     /* float: left; */
     width: 100%;
     /* padding-top: 4px; */
@@ -117,7 +117,7 @@ a {
     /* border: white 1px solid; */
 }
 /* show information style */
-.div_blog_content {
+.div_drumbas_content {
     width: 200px;
     padding-top: 4px;
     /* height: 20px; */

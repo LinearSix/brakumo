@@ -5,7 +5,7 @@ const router = express.Router();
 const knex = require('../db/knex');
 
 // list all blogs
-router.get('/blog', (req, res, next) => {
+router.get('/drumbas', (req, res, next) => {
   knex.from('blogs')
     .orderBy('blog_date', 'desc')
     .then((blogs) => {
@@ -13,8 +13,8 @@ router.get('/blog', (req, res, next) => {
       .innerJoin('venues', 'venue_id', 'ven_id')
       .orderBy('show_date', 'desc')
       .then((shows) => {
-        let selected_link = 'BLOG';
-        res.render('blog', { blogs, shows, selected_link });
+        let selected_link = 'DRUMBAS';
+        res.render('drumbas', { blogs, shows, selected_link });
       })
     })
     .catch((err) => {
@@ -23,7 +23,7 @@ router.get('/blog', (req, res, next) => {
 });
 
 // list all blogs
-router.get('/blog/:id', (req, res, next) => {
+router.get('/drumbas/:id', (req, res, next) => {
     knex.from('blogs')
       .where('blog_id', '=', req.params.id)
       .then((blogs) => {
@@ -31,8 +31,8 @@ router.get('/blog/:id', (req, res, next) => {
         .innerJoin('venues', 'venue_id', 'ven_id')
         .orderBy('show_date', 'desc')
         .then((shows) => {
-          let selected_link = 'BLOG';
-          res.render('blog', { blogs, shows, selected_link });
+          let selected_link = 'DRUMBAS';
+          res.render('drumbas', { blogs, shows, selected_link });
         })
       })
       .catch((err) => {

@@ -383,11 +383,11 @@ router.get('/admin_show_delete/:id', (req, res, next) => {
 });
 
 // ######################################################################
-// ######################### BLOGS ADMIN ################################
+// ######################## DRUMBAS ADMIN ###############################
 // ######################################################################
 
 // list all admmin blog information
-router.get('/admin_blogs', (req, res, next) => {
+router.get('/admin_drumbas', (req, res, next) => {
     knex.from('blogs')
       .orderBy('blog_date', 'desc')
       .then((blogs) => {
@@ -396,8 +396,8 @@ router.get('/admin_blogs', (req, res, next) => {
         .orderBy('show_date', 'desc')
         .then((shows) => {
             let selected_link = 'ADMIN';
-            let admin_link = 'ADMIN_BLOGS';
-            res.render('admin_blogs', { blogs, shows, selected_link, admin_link })
+            let admin_link = 'ADMIN_DRUMBAS';
+            res.render('admin_drumbas', { blogs, shows, selected_link, admin_link })
         })
       })
       .catch((err) => {
@@ -405,17 +405,17 @@ router.get('/admin_blogs', (req, res, next) => {
       });
   });
 
-// ######################### CREATE BLOG ################################
+// ######################### CREATE DRUMBAS ################################
 
 // render page for adding a blog entry
-router.get('/admin_blog_add', (req, res, next) => {
+router.get('/admin_drumbas_add', (req, res, next) => {
     knex('shows')
     .innerJoin('venues', 'venue_id', 'ven_id')
     .orderBy('show_date', 'desc')
     .then((shows) => {
         let selected_link = 'ADMIN';
         let admin_link = '';
-        res.render('admin_blog_add', { shows, selected_link, admin_link })
+        res.render('admin_drumbas_add', { shows, selected_link, admin_link })
     })
     .catch((err) => {
         next(err);
@@ -424,7 +424,7 @@ router.get('/admin_blog_add', (req, res, next) => {
 
 // insert new blog into db
 let blog_insert_id;
-router.post('/admin_blog_submit', (req, res, next) => {
+router.post('/admin_drumbas_submit', (req, res, next) => {
     let blog_date = `${req.body.blog_year}-${req.body.blog_month}-${req.body.blog_day}`;
   knex.transaction(function(t) {
       return knex('blogs')
@@ -441,8 +441,7 @@ router.post('/admin_blog_submit', (req, res, next) => {
       })
       .then(t.commit)
       .then(() => {
-          // console.log(assassin_id);
-          res.redirect('/admin_blogs/' + blog_insert_id);
+          res.redirect('/admin_drumbas/' + blog_insert_id);
       })
       .catch((err) => {
           t.rollback();
@@ -457,10 +456,10 @@ router.post('/admin_blog_submit', (req, res, next) => {
   })
 });
 
-// ######################### UPDATE BLOG ################################
+// ######################### UPDATE DRUMBAS ################################
 
 // list selected blog after selecting for update
-router.get('/admin_blogs/:id', (req, res, next) => {
+router.get('/admin_drumbas/:id', (req, res, next) => {
     knex.from('blogs')
     .where('blog_id', '=', req.params.id)
     .then((blogs) => {
@@ -470,7 +469,7 @@ router.get('/admin_blogs/:id', (req, res, next) => {
         .then((shows) => {
             let selected_link = 'ADMIN';
             let admin_link;
-            res.render('admin_blogs', { blogs, shows, selected_link, admin_link })
+            res.render('admin_drumbas', { blogs, shows, selected_link, admin_link })
         })
     })
     .catch((err) => {
@@ -479,7 +478,7 @@ router.get('/admin_blogs/:id', (req, res, next) => {
   });
 
 // list selected blog information for editing
-router.get('/admin_blog_edit/:id', (req, res, next) => {
+router.get('/admin_drumbas_edit/:id', (req, res, next) => {
     knex('blogs')
     .where('blog_id', '=', req.params.id)
     .then((blogs) => {
@@ -488,7 +487,7 @@ router.get('/admin_blog_edit/:id', (req, res, next) => {
         .then((shows) => {
         let selected_link = 'ADMIN';
         let admin_link;
-        res.render('admin_blog_edit', { shows, blogs, selected_link, admin_link })
+        res.render('admin_drumbas_edit', { shows, blogs, selected_link, admin_link })
         })
     })
     .catch((err) => {
@@ -498,7 +497,7 @@ router.get('/admin_blog_edit/:id', (req, res, next) => {
 
 // update show record and render confirmation page
 let blog_update_id;
-router.post('/admin_blog_update', (req, res, next) => {
+router.post('/admin_drumbas_update', (req, res, next) => {
   blog_update_id = Number(req.body.blog_id);
   let blog_show_id = req.body.blog_show_id;
   if (blog_show_id === 'NULL') {
@@ -523,18 +522,18 @@ router.post('/admin_blog_update', (req, res, next) => {
     })
     .then((x) => {
         let selected_link = 'ADMIN';
-        let admin_link = "ADMIN_BLOGS";
-      res.redirect('/admin_blogs/' + blog_update_id, selected_link, admin_link );
+        let admin_link = "ADMIN_DRUMBAS";
+      res.redirect('/admin_drumbas/' + blog_update_id, selected_link, admin_link );
     })
     .catch((err) => {
       next(err);
     });
 });
 
-// ######################### DELETE BLOG ################################
+// ######################### DELETE DRUMBAS ################################
 
 // delete a show and redirect to confirmation page
-router.get('/admin_blog_delete/:id', (req, res, next) => {
+router.get('/admin_drumbas_delete/:id', (req, res, next) => {
 
     let blog_row;
     
@@ -553,8 +552,8 @@ router.get('/admin_blog_delete/:id', (req, res, next) => {
     .then(() => {
       delete blog_row.show_id;
         let selected_link = 'ADMIN';
-        let admin_link = "ADMIN_BLOGS";
-      res.redirect('/admin_blogs', selected_link, admin_link );
+        let admin_link = "ADMIN_DRUMBAS";
+      res.redirect('/admin_drumbas', selected_link, admin_link );
     })
     .catch((err) => {
       next(err);

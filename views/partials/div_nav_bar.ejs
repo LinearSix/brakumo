@@ -10,10 +10,15 @@
         <% } else { %>
         <div class="div_nav_link"><a href="/shows">SHOWS</a></div>
         <% } %>
-        <% if (selected_link === 'BLOG') { %>
-            <div class="div_nav_link"><u>BLOG</u></div>
+        <% if (selected_link === 'DRUMBAS') { %>
+            <div class="div_nav_link"><u>DRUMBAS</u></div>
         <% } else { %>
-        <div class="div_nav_link"><a href="/blog">BLOG</a></div>
+        <div class="div_nav_link"><a href="/drumbas">DRUMBAS</a></div>
+        <% } %>
+        <% if (selected_link === 'PRESS') { %>
+            <div class="div_nav_link"><u>MEDIA</u></div>
+        <% } else { %>
+        <div class="div_nav_link"><a href="/press">MEDIA</a></div>
         <% } %>
         <% if (selected_link === 'MERCH') { %>
             <div class="div_nav_link"><u>MERCH</u></div>
@@ -24,11 +29,6 @@
             <div class="div_nav_link"><u>CONTACT</u></div>
         <% } else { %>
         <div class="div_nav_link"><a href="/contact">CONTACT</a></div>
-        <% } %>
-        <% if (selected_link === 'PRESS') { %>
-            <div class="div_nav_link"><u>MEDIA</u></div>
-        <% } else { %>
-        <div class="div_nav_link"><a href="/press">MEDIA</a></div>
         <% } %>
         <% if (selected_link === 'MAIL') { %>
             <div class="div_nav_link"><u>MAIL</u></div>
@@ -48,10 +48,10 @@
                 <% } else { %>
                     <div class="div_admin_link"><a href="/admin_shows">SHOWS ADMIN</a></div>
                 <% } %>
-                <% if (admin_link === 'ADMIN_BLOGS') { %>
-                    <div class="div_admin_link"><u>BLOG ADMIN</u></div>
+                <% if (admin_link === 'ADMIN_DRUMBAS') { %>
+                    <div class="div_admin_link"><u>DRUMBAS ADMIN</u></div>
                 <% } else { %>
-                    <div class="div_admin_link"><a href="/admin_blogs">BLOG ADMIN</a></div>
+                    <div class="div_admin_link"><a href="/admin_drumbas">DRUMBAS ADMIN</a></div>
                 <% } %>
                 <% if (admin_link === 'ADMIN_PRESS') { %>
                     <div class="div_admin_link"><u>PRESS ADMIN</u></div>
@@ -66,7 +66,7 @@
             <% } else { %>
                 <div class="div_admin_link"><a href="/admin_venues">VENUES ADMIN</a></div>
                 <div class="div_admin_link"><a href="/admin_shows">SHOWS ADMIN</a></div>
-                <div class="div_admin_link"><a href="/admin_blogs">BLOG ADMIN</a></div>
+                <div class="div_admin_link"><a href="/admin_drumbas">DRUMBAS ADMIN</a></div>
                 <div class="div_admin_link"><a href="/admin_press">PRESS ADMIN</a></div>
                 <div class="div_admin_link"><a href="/admin_mail">MAILING ADMIN</a></div>
             <% } %>
@@ -74,10 +74,10 @@
     <% } else { %>
         <div class="div_nav_link"><a href="/index">HOME</a></div>
         <div class="div_nav_link"><a href="/shows">SHOWS</a></div>
-        <div class="div_nav_link"><a href="/blog">BLOG</a></div>
+        <div class="div_nav_link"><a href="/drumbas">DRUMBAS</a></div>
+        <div class="div_nav_link"><a href="/press">MEDIA</a></div>
         <div class="div_nav_link"><a href="/merch">MERCH</a></div>
         <div class="div_nav_link"><a href="/contact">CONTACT</a></div>
-        <div class="div_nav_link"><a href="/press">MEDIA</a></div>
         <div class="div_nav_link"><a href="/mail">MAILING LIST</a></div>
     <% } %>
     </div>
