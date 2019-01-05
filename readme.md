@@ -16,3 +16,12 @@
 * The administrator should use a login page to access administrator pages
 * The administrator should be able to update show, venue , press, and blog information
 
+## Under Construction
+* Add cover/ticket price to shows table
+* Change blog page to Drumbas page
+* Add photo/video upload to drumbas(blog) admin page/table
+* Add photo/video upload to media admin page/table
+* Add press kit to contact page
+* Add vision statement to home page
+* Integrate logo
+

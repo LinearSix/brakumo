@@ -3,6 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const knex = require('../db/knex');
+const bcrypt = require('bcrypt');
 
 // list admin information
 router.get('/admin', (req, res, next) => {
@@ -28,6 +29,11 @@ router.post('/admin_home', (req, res, next) => {
             let admin_link = '';
             res.redirect('admin', { selected_link })
         } else {
+
+            console.log(bcrypt.hash(req.body.admin_password, 10, function(err, hash) {
+            
+              }));
+
             let selected_link = 'ADMIN';
             let admin_link = '';
             res.render('admin_home', { admin, selected_link, admin_link })

@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const knex = require('../db/knex');
 
-// list all assassins
+// list all current shows
 router.get('/index', (req, res, next) => {
     knex('shows')
         .innerJoin('venues', 'venue_id', 'ven_id')
