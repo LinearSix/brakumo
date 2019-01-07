@@ -3,9 +3,12 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 2500;
 const bodyParser = require('body-parser');
+// const dotenv = require('dotenv').config();
 const nodemailer = require('nodemailer');
 const tumblr = require('tumblr.js');
 // const knex = require('./db/knex');
+
+// app.use(dotenv);
 
 // use body-parser middleware
 app.use(bodyParser.json());
