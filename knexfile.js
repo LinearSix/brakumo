@@ -1,6 +1,6 @@
 // Update with your config settings.
 
-// https://fast-chamber-88110.herokuapp.com/
+// https://brakumo.herokuapp.com/
 
 module.exports = {
 
@@ -10,14 +10,19 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
-    connection: process.env.DATABASE_URL + `?ssl=true`,
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
+    client: 'pg',
+      connection: {
+        host : '127.0.0.1',
+        user : 'davie',
+        password : '1DrumbasIsEnough!',
+        database : 'brakumo',
+        charset: 'utf8'
+      },
+      migrations: {
+        directory: __dirname + '/knex/migrations',
+      },
+      seeds: {
+        directory: __dirname + '/knex/seeds'
+      }
     }
-  }
 };
