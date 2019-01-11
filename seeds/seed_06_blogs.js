@@ -16,12 +16,6 @@ exports.seed = function(knex, Promise) {
           "blog_show_id": 2,
           "blog_title": "Friday! Friday! Friday!",
           "blog_content": "I can't believe someone actually booked me on a Friday night. Idiots",
-        },
-        {
-          "blog_date": "2018-09-02",
-          "blog_show_id": 3,
-          "blog_title": "Whatever...",
-          "blog_content": "Someone stole all my equipment after last night's show. But I'd stolen it from the opening band, so don't worry. It's no big deal.",
         }
       ]);
     });

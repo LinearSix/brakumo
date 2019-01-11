@@ -22,16 +22,18 @@ router.post('/contact_submit', function (req, res) {
     port: 465,
     secure: true,
     auth: {
-      user: 'email@gmail.com', // get this into an environment variable!
-      pass: 'password' // get this into an environment variable!
+      user: 'davie@brandtprecision.com', // get this into an environment variable!
+      pass: 'JunkAccount001' // get this into an environment variable!
     }
   });
+
   mailOpts = {
     from: req.body.name + ' &lt;' + req.body.email + '&gt;',
-    to: 'email@gmail.com',
-    subject: 'New message from contact form at brakumo.com',
-    text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`
+    to: 'davie@drumbas.com',
+    subject: 'New message from contact form at drumbas.com',
+    text: `Name: ${req.body.name}\r\nEmail: ${req.body.email}\r\nSays: ${req.body.comment}`
   };
+
   smtpTrans.sendMail(mailOpts, function (error, response) {
     if (error) {
       let selected_link = 'CONTACT';

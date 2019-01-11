@@ -92,76 +92,9 @@
             </td>
         </tr>
     </table>
-    <table class="table_merch_container">
-        <tr>
-            <td class="td_merch_left">
-                <div class="img-zoom-container">
-                    <img id="myImg" src="drumbas_parts.jpg" width="300" height="240" alt="Drumbas Kit - $40,000"/>
-                </div>
-                <div class="div_merch_info">
-                    <p>Click on thumbnail to enlarge</p>
-                </div>
-            </td>
-            <td class="td_merch_right">
-                <div id="myModal" class="modal">
-
-                <!-- The Close Button -->
-                <span class="close">&times;</span>
-                
-                <!-- Modal Content (The Image) -->
-                <img class="modal-content" id="img01">
-                
-                <!-- Modal Caption (Image Text) -->
-                <div id="caption">This is a big version</div>
-                </div>
-            </td>
-        </tr>
-    </table>
-    <table class="table_merch_container">
-        <tr>
-            <td class="td_merch_left">
-                <div class="div_merch_album"><img id="img_album" src="pay_the_machine.jpg" alt="Pay The Machine (Vinyl) - $25"/></div>
-            </td>
-            <td class="td_merch_right">
-                <div class="div_album_title">
-                    Pay the Machine
-                    <br/>(Made-up Vinyl LP)
-                    <p>$25</p>
-                </div>
-                <div class="div_album_info">
-                    <p>10 imaginary studio tracks from Brakumo.
-                        <br/>Available on virtual vinyl only.
-                        <br/>Please allow 4-6 years for delivery.
-                    </p>
-                </div>
-            </td>
-        </tr>
-    </table>
     <script>
         imageZoom("myimage", "myresult"); 
     </script>
-    <script>
-    // Get the modal
-    let modal = document.getElementById('myModal');
     
-    // Get the image and insert it inside the modal - use its "alt" text as a caption
-    let img = document.getElementById('myImg');
-    let modalImg = document.getElementById("img01");
-    let captionText = document.getElementById("caption");
-    img.onclick = function(){
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
-    }
-
-    
-    // Get the <span> element that closes the modal
-    let span = document.getElementsByClassName("close")[0];
-    
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() { 
-      modal.style.display = "none";
-    }
-    </script>
 </body>
 </html>

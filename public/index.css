@@ -1,4 +1,4 @@
-@media screen and (display-mode: fullscreen) {
+
     body, html {
         height: 100%;
         margin: 0;
@@ -6,15 +6,10 @@
     }
     /* large background image with linear gradient for homepage */
     .bg_home_img {
-        background-image: linear-gradient(rgba(0, 0, 0, 1.0)12%, rgba(0, 0, 0, 0.01)25%, rgba(0, 0, 0, 1.0)70%),
+        background-image: linear-gradient(rgba(0, 0, 0, 1.0)10vh, rgba(0, 0, 0, 0.01)25vh, rgba(0, 0, 0, 1.0)50vh),
                       url("drumbas_main_bw.jpg");
-        background-size: 1600px; 
-    }
-    /* large background image with linear gradient for shows page */
-    .bg_shows_img {
-        background-image: linear-gradient(rgba(0, 0, 0, 1.0)12%, rgba(0, 0, 0, 0.01)25%, rgba(0, 0, 0, 1.0)70%),
-                      url("drumbas_close.jpg");
-        background-size: 1600px; 
+        background-size: 100vw; 
+        background-repeat: no-repeat;
     }
     /* link styling */
     a {
@@ -26,19 +21,35 @@
         src: url("asche-bold-webfont.ttf") format("truetype");
     }
     .div_home_logo {
-        padding-top: 6%;
-        padding-bottom: 6%;
+        padding-top: 80px;
+        height: 15vw;
+        padding-bottom: 1vw;
         margin-left: auto;
         margin-right: auto;
         text-align: center;
         font-family: 'Asche', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         /* src: url("asche-bold-webfont.ttf") format("truetype"); */
-        font-size: 150px;
+        font-size: 15vw;
         color: white;
         /* offset-x | offset-y | blur-radius | color */
         text-shadow: 0px 0px 30px black;
+        /* border: solid white 1px; */
     }
-    /* information headers container */ */
+    /* blurb under logo */
+    .div_home_blurb {
+        /* float: left; */
+        width: 100vw;
+        height: 10vh;
+        /* padding-top: 1%; */
+        text-align: center;
+        font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 1vw;
+        color: grey;
+        /* offset-x | offset-y | blur-radius | color */
+        text-shadow: 0px 0px 1px black;
+        /* border: solid green 1px; */
+    }
+    /* information headers container */
     .div_home_shows_headers_container {
         width: 100%;
         /* height: 30px; */
@@ -62,7 +73,7 @@
         padding-top: 1%;
         text-align: left;
         font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 17px;
+        font-size: 1.25vw;
         color: white;
         /* offset-x | offset-y | blur-radius | color */
         text-shadow: 0px 0px 1px black;
@@ -85,7 +96,7 @@
         padding-top: 1%;
         text-align: left;
         font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 15px;
+        font-size: 1.25vw;
         color: white;
         /* offset-x | offset-y | blur-radius | color */
         text-shadow: 0px 0px 1px black;
@@ -94,135 +105,21 @@
     /* show information "MORE" button container */
     .div_show_more {
         /* float: left; */
-        width: 50px;
+        width: 4vw;
         text-align: center;
         font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 13px;
+        font-size: 1vw;
         color: white;
         border: white 2px solid;
     }
-}
-@media all and (orientation: landscape) {
-    body, html {
-        height: 100%;
-        margin: 0;
-        background-color: black;
-    }
+
+@media screen and (max-width: 500px) {
     /* large background image with linear gradient for homepage */
     .bg_home_img {
         background-image: linear-gradient(rgba(0, 0, 0, 1.0)12%, rgba(0, 0, 0, 0.01)25%, rgba(0, 0, 0, 1.0)70%),
                       url("drumbas_main_bw.jpg");
-        background-size: 1600px; 
-    }
-    /* large background image with linear gradient for shows page */
-    .bg_shows_img {
-        background-image: linear-gradient(rgba(0, 0, 0, 1.0)12%, rgba(0, 0, 0, 0.01)25%, rgba(0, 0, 0, 1.0)70%),
-                      url("drumbas_close.jpg");
-        background-size: 1600px; 
-    }
-    /* link styling */
-    a {
-        color: white;
-        text-decoration: none;
-    }
-    @font-face {
-        font-family: "Asche";
-        src: url("asche-bold-webfont.ttf") format("truetype");
-    }
-    .div_home_logo {
-        padding-top: 6%;
-        padding-bottom: 6%;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-        font-family: 'Asche', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        /* src: url("asche-bold-webfont.ttf") format("truetype"); */
-        font-size: 150px;
-        color: white;
-        /* offset-x | offset-y | blur-radius | color */
-        text-shadow: 0px 0px 30px black;
-    }
-    /* information headers container */ */
-    .div_home_shows_headers_container {
-        width: 100%;
-        /* height: 30px; */
-        margin-left: auto;
-        margin-right: auto;
-    }
-    /* scrolling shows container */
-    .div_home_shows_container {
-        width: 100%;
-        padding-top: 1%;
-        /* height: 30px; */
-        margin-left: auto;
-        margin-right: auto;
-        /* overflow: auto; */
-    }
-    /* show information headers */
-    .div_home_shows_headers {
-        float: left;
-        width: 17.5%;
-        height: 20px;
-        padding-top: 1%;
-        text-align: left;
-        font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 17px;
-        color: white;
-        /* offset-x | offset-y | blur-radius | color */
-        text-shadow: 0px 0px 1px black;
-        /* border: white 1px solid; */
-    }
-    /* show information left-hand spacer */
-    .div_home_shows_spacer {
-        float: left;
-        width: 5%;
-        height: 20px;
-        padding-top: 1%;
-        text-align: left;
-        /* border: white 1px solid; */
-    }
-    /* show information styles */
-    .div_home_shows {
-        float: left;
-        width: 17.5%;
-        height: 20px;
-        padding-top: 1%;
-        text-align: left;
-        font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 15px;
-        color: white;
-        /* offset-x | offset-y | blur-radius | color */
-        text-shadow: 0px 0px 1px black;
-        /* border: white 1px solid; */
-    }
-    /* show information "MORE" button container */
-    .div_show_more {
-        /* float: left; */
-        width: 50px;
-        text-align: center;
-        font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 13px;
-        color: white;
-        border: white 2px solid;
-    }
-}
-@media screen and (max-width: 1280px) {
-    body, html {
-        height: 100%;
-        margin: 0;
-        background-color: black;
-    }
-    /* large background image with linear gradient for homepage */
-    .bg_home_img {
-        background-image: linear-gradient(rgba(0, 0, 0, 1.0)12%, rgba(0, 0, 0, 0.01)25%, rgba(0, 0, 0, 1.0)70%),
-                      url("drumbas_main_bw.jpg");
-        background-size: 1600px; 
-    }
-    /* large background image with linear gradient for shows page */
-    .bg_shows_img {
-        background-image: linear-gradient(rgba(0, 0, 0, 1.0)12%, rgba(0, 0, 0, 0.01)25%, rgba(0, 0, 0, 1.0)70%),
-                      url("drumbas_close.jpg");
-        background-size: 1600px; 
+        background-size: 100vw;
+        background-repeat: no-repeat;
     }
     /* link styling */
     a {
@@ -245,6 +142,19 @@
         color: white;
         /* offset-x | offset-y | blur-radius | color */
         text-shadow: 0px 0px 30px black;
+    }
+    /* blurb under logo */
+    .div_home_blurb {
+        /* float: left; */
+        width: 100vw;
+        /* height: 20px; */
+        padding-top: 1%;
+        text-align: center;
+        font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 10px;
+        color: white;
+        /* offset-x | offset-y | blur-radius | color */
+        text-shadow: 0px 0px 1px black;
     }
     /* information headers container */ */
     .div_home_shows_headers_container {

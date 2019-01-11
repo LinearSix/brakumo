@@ -90,6 +90,9 @@ a {
     text-shadow: 0px 0px 1px black;
     /* border: white 1px solid; */
 }
+#id_drumbas_image {
+    border: solid white 1px;
+}
 /* show date style */
 .div_drumbas_date {
     /* float: left; */

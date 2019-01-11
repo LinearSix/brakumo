@@ -11,28 +11,30 @@
 <body class="bg_drumbas_img">
     <% include partials/div_nav_bar.ejs %>
     <br/><div class="div_drumbas_container">
-            <% for (i=0; i<blogs.length; i++) { %>
+ 
                 <table class="table_drumbas_container">
                     <tr>
                         <td class="td_drumbas_left">
-                            <div class="div_drumbas_title"><%= blogs[i].blog_title %></div>
-                            <% if (blogs[i].blog_show_id) { %>
-                                <% for (let j=0; j<shows.length; j++) { %>
-                                    <% if (blogs[i].blog_show_id === shows[j].show_id) { %>
-                                        <div class="div_drumbas_reference"> ~ in reference to the show on</div>
-                                        <div class="div_drumbas_venue"><%= shows[j].show_date.toDateString() %>
-                                        <br/>at <%= shows[j].ven_name %></div>
-                                    <% } %>
-                                <% } %>
-                            <% } %>
+                            <div class="div_drumbas_title">Prototype Complete!</div>
+                            
+                            <div class="div_drumbas_reference"><img id="id_drumbas_image" src="drumbas_complete_01_small.jpg"></div>
+                            <div class="div_drumbas_venue">October 20, 2018</div>
+
                         </td>
                         <td class="td_drumbas_right">
-                            <div class="div_drumbas_date"><%= blogs[i].blog_date.toDateString() %></div>
-                            <div class="div_drumbas_content"><%= blogs[i].blog_content %></div>
+                            <div class="div_drumbas_date">October 20, 2018</div>
+                            <div class="div_drumbas_content">After 3 years of tinkering, the Drumbas 
+                                is ready to play!
+                                <p>I slathered on some tie-fighter grey stain 
+                                to get it as industrial-looking as possible.</p>
+                                <p>The final piece of the puzzle will be getting 
+                                    the six single coil pickups wired up. 
+                                </p>
+                            </div>
                         </td>
                     </tr>
                 </table>
-            <% } %>
+
         </div>
 </body>
 </html>

@@ -48,6 +48,28 @@ exports.seed = function(knex, Promise) {
           "ven_phone": "",
           "ven_web": "http://empireatx.com/",
           "ven_desc": "Empire is a 15,000 square foot modern music space at 7th and Red River, dedicated to presenting quirky, warehouse style events that feel more like adventurous discoveries than everyday affairs."
+        },
+        {
+          "ven_name": "The Volstead",
+          "ven_address_1": "1500 E 6th St",
+          "ven_address_2": "",
+          "ven_city": "Austin",
+          "ven_state": "TX",
+          "ven_postal": "78702",
+          "ven_phone": "",
+          "ven_web": "http://texashotelvegas.com/",
+          "ven_desc": "Casual night club with leather couches, cocktails & boasting a massive patio & DJs most nights."
+        },
+        {
+          "ven_name": "Cement Loop",
+          "ven_address_1": "5811 Berkman Dr. Ste. 140",
+          "ven_address_2": "",
+          "ven_city": "Austin",
+          "ven_state": "TX",
+          "ven_postal": "78723",
+          "ven_phone": "",
+          "ven_web": "http://www.cementloop.com/",
+          "ven_desc": "An unconventional space in a conventional building establishing a creative platform to make, connect and explore art and its craft."
         }
       ]);
     });

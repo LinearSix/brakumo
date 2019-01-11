@@ -42,7 +42,8 @@
                         <% } %>
                         <% for (let j=0; j<blogs.length; j++) { %>
                             <% if (blogs[j].blog_show_id === shows[i].show_id) { %>
-                                <u><a href="/blog/<%= blogs[j].blog_id %>"><div class="div_shows_blog">SHOW BLOG - <%= blogs[j].blog_date.toDateString() %></div></a></u>
+                                <u><a href="/press"><div class="div_shows_blog">SHOW MEDIA - <%= blogs[j].blog_date.toDateString() %></div></a></u>
+                                <!-- <u><a href="/press/<%= blogs[j].blog_id %>"><div class="div_shows_blog">SHOW MEDIA - <%= blogs[j].blog_date.toDateString() %></div></a></u> -->
                             <% } %>
                         <% } %>
                     </td>

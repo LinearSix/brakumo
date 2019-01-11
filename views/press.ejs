@@ -11,21 +11,73 @@
 <body class="bg_press_img">
     <% include partials/div_nav_bar.ejs %>
     <br/><div class="div_press_container">
-            <% for (i=0; i<press.length; i++) { %>
-                <table class="table_press_container">
-                    <tr>
-                        <td class="td_press_left">
-                            <div class="div_press_publication"><%= press[i].press_publication %></div>
-                            <div class="div_press_date"><%= press[i].press_date.toDateString() %></div>
-                            <div class="div_press_link"><a href="<%= press[i].press_link %>" target="_blank"><%= press[i].press_link %></a></div>
-                        </td>
-                        <td class="td_press_right">
-                            <div class="div_press_content"><%= press[i].press_content %></div>
-                            <div class="div_press_author">~ <%= press[i].press_author %></div>
-                        </td>
-                    </tr>
-                </table>
-            <% } %>
-        </div>
+            
+        <table class="table_press_container">
+            <tr>
+                <td class="td_press_left">
+                    <div class="div_press_publication">"Embrace"</div>
+                    <div class="div_media_video">
+                        <video src="video03.mp4" controls width="426">
+                            <p>Sorry. Your browser does not support HTML5 video.</p>
+                        </video>
+                    </div>
+                    <div class="div_press_link">Original composition</div>
+                    <div class="div_press_date">Uploaded January 9, 2019</div>
+                </td>
+                <td class="td_press_right">
+                    <div class="div_press_content">Every practice session moves me further down the path 
+                        toward my vision.
+                        <p>I think this set of patches is going to turn into my first 
+                        complete tune, titled "Embrace". I hope to combine it with lyrical parts 
+                        that were written about a year ago.</p> 
+                    </div>
+                    <div class="div_press_author">~ Davie</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="td_press_left">
+                    <div class="div_press_publication">A Little 4-on-the-Floor</div>
+                    <div class="div_media_video">
+                        <video src="video02.mp4" controls width="426">
+                            <p>Sorry. Your browser does not support HTML5 video.</p>
+                        </video>
+                    </div>
+                    <div class="div_press_link">Rehearsal experiment</div>
+                    <div class="div_press_date">Uploaded January 5, 2019</div>
+                </td>
+                <td class="td_press_right">
+                    <div class="div_press_content">I wanted to see how my accuracy would be 
+                        on a tight, dance-tempo kind of song, so I whipped up this patch.
+                        <p>I'm pretty happy with the result. I plan to have several 1/4-note 
+                            based songs eventually.
+                        </p> 
+                    </div>
+                    <div class="div_press_author">~ Davie</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="td_press_left">
+                    <div class="div_press_publication">New Pedals</div>
+                    <div class="div_media_video">
+                        <video src="video01.mp4" controls width="426">
+                            <p>Sorry. Your browser does not support HTML5 video.</p>
+                        </video>
+                    </div>
+                    <div class="div_press_link">Rehearsal experiment</div>
+                    <div class="div_press_date">Uploaded October 8, 2018</div>
+                </td>
+                <td class="td_press_right">
+                    <div class="div_press_content">Along with the ElectroHarminix SuperEgo and Mel9, 
+                        I rented an Earthquaker Devices Arpanoid to try.
+                        <p>The Arpanoid randomly pitches the signal in a desired key and then arpegiates 
+                            it. The only issue is that there's no way to sync it with any of my 
+                            other devices via MIDI.</p> 
+                    </div>
+                    <div class="div_press_author">~ Davie</div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
 </body>
 </html>

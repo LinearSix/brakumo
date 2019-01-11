@@ -1,4 +1,4 @@
-@media screen and (display-mode: fullscreen) {
+
     body, html {
         height: 100%;
         margin: 0;
@@ -30,7 +30,7 @@
         padding-top: 20px;
         text-align: center;
         font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 17px;
+        font-size: 1.25vw;
         color: white;
     }
     /* link styling */
@@ -38,51 +38,8 @@
         color: white;
         text-decoration: none;
     }
-}
 
-@media all and (orientation: landscape) {
-    body, html {
-        height: 100%;
-        margin: 0;
-        background-color: black;
-    }
-    /* large background image with linear gradient for homepage */
-    .bg_home_img {
-        background-image: linear-gradient(rgba(0, 0, 0, 1.0)12%, rgba(0, 0, 0, 0.01)25%, rgba(0, 0, 0, 1.0)70%),
-                      url("drumbas_main_bw.jpeg");
-        background-size: 1600px; 
-    }
-    /* large background image with linear gradient for shows page */
-    .bg_shows_img {
-        background-image: linear-gradient(rgba(0, 0, 0, 1.0)12%, rgba(0, 0, 0, 0.01)25%, rgba(0, 0, 0, 1.0)70%),
-                      url("drumbas_close.jpg");
-        background-size: 1600px; 
-    }
-    /* navigation bar div */
-    .div_nav {
-        width: 60%;
-        height: 30px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    /* navigation link divs */
-    .div_nav_link {
-        float: left;
-        width: 14.25%;
-        padding-top: 20px;
-        text-align: center;
-        font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 17px;
-        color: white;
-    }
-    /* link styling */
-    a {
-        color: white;
-        text-decoration: none;
-    }
-}
-
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 500px) {
     body, html {
         height: 100%;
         margin: 0;
