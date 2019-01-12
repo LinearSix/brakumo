@@ -16,6 +16,9 @@ router.get('/contact', (req, res, next) => {
 
 // POST route from contact form
 router.post('/contact_submit', function (req, res) {
+  // console.log(`body.name: ${req.body.name}`);
+  // console.log(`body.name: ${req.body.email}`);
+  // console.log(`body.name: ${req.body.comment}`);
   let mailOpts, smtpTrans;
   smtpTrans = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -36,12 +39,12 @@ router.post('/contact_submit', function (req, res) {
 
   smtpTrans.sendMail(mailOpts, function (error, response) {
     if (error) {
-      let selected_link = 'CONTACT';
-      res.render('contact_failure', { selected_link });
+      let selected_link = 'CONTACT_FAILURE';
+      res.render('contact', { selected_link });
     }
     else {
-      let selected_link = 'CONTACT';
-      res.render('contact_success', { selected_link });
+      let selected_link = 'CONTACT_SUCCESS';
+      res.render('contact', { selected_link });
     }
   });
 });

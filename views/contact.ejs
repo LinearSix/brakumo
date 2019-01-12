@@ -10,9 +10,28 @@
 </head>
 <body class="bg_contact_img">
     <% include partials/div_nav_bar.ejs %>
+    
     <br/><div class="div_contact_container">
+        <% if (selected_link === 'CONTACT_SUCCESS') { %>
+            <div class="div_contact_success_header">Thank You!</div>
+            <div class="div_contact_success_blurb">Someone will be in touch with you shortly!</div>
+        <% } %>
+        <% if (selected_link === 'CONTACT_FAILURE') { %>
+            <div class="div_contact_success_header">We're Sorry</div>
+            <div class="div_contact_success_blurb">Something went wrong with the form submission. 
+                <br />Please try again or contact us via email or phone.</div>
+        <% } %>
             <form action="contact_submit" method="post">
                 <table class="table_contact_container">
+                    <tr>
+                        <td colspan="2">
+                            <div class="div_contact_submit">For booking or any other questions,
+                                <br />please <u><a href="mailto:davie@drumbas.com">email</a></u> us or 
+                                use the form below.
+                                <br />&nbsp;
+                            </div>
+                        </td>
+                    </tr>
                     <tr>
                         <td class="td_contact_left">
                             <div class="div_contact_label">Name:</div>
