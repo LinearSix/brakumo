@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 2500;
 const bodyParser = require('body-parser');
-// const dotenv = require('dotenv').config();
+const exphbs = require('express-handlebars');
 const tumblr = require('tumblr.js');
 // const knex = require('./db/knex');
 
@@ -14,7 +14,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // set the folder for ejs files
-app.set('views', path.join(__dirname, 'views'));
+// app.set('views', path.join(__dirname, 'views'));
+
+// trying handlebars for nodemailer test
+// app.engine('handlebars', exphbs())
+// app.set('view engine', 'handlebars');
 
 // Set the folder for public content
 app.use(express.static(path.join(__dirname, 'public')))

@@ -57,32 +57,27 @@
 @media screen and (max-width: 780px) {
     /* navigation bar div */
     .div_nav {
-        width: 50vw;
-        height: 50vh;
-        display: block;
-        justify-content: left;
-        margin-left: 50vw;
+        margin-top: 20px;
+        width: 80vw;
+        display: table;
+        justify-content: space-around;
+        text-align: center;
+        height: 6vw;
+        margin-left: auto;
         margin-right: auto;
-        border: solid pink 1px;
-    }
-    /* navigation link divs */
+        /* border: solid pink 1px; */
+    }/* navigation link divs */
     .div_nav_link {
-        float: unset;
-        /* width: 14.25%; */
-        height: 3vw;
-        /* margin-left: 1.4vw; */
-        /* margin-right: 1.4vw; */
-        padding-top: 15px;
-        text-align: left;
+        /* float: left; */
+        margin-left: 2.5vw;
+        margin-right: 2.5vw;
+        /* min-width: 50px; */
+        padding-top: 10px;
+        text-align: center;
         font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 3.5vw;
+        font-size: 4vw;
         color: white;
-        border: solid lightblue 1px;
-    }
-    /* link styling */
-    a {
-        color: white;
-        text-decoration: none;
+        /* border: solid green 1px; */
     }
 }
 

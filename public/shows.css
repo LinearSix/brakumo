@@ -141,3 +141,98 @@ a {
     color: white;
     /* border: white 1px solid; */
 }
+@media screen and (max-width: 780px) {
+    .div_shows_ven_desc {
+        display: none;
+    }
+    /* show venue style */
+    .div_shows_venue {
+        /* float: left; */
+        width: 100%;
+        text-align: right;
+        font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 4vw;
+        font-weight: bold;
+        color: white;
+        /* offset-x | offset-y | blur-radius | color */
+        text-shadow: 0px 0px 1px black;
+        /* border: white 1px solid; */
+    }
+    /* show address style */
+    .div_shows_address {
+        /* float: left; */
+        width: 100%;
+        text-align: right;
+        font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 16px;
+        color: white;
+        /* offset-x | offset-y | blur-radius | color */
+        text-shadow: 0px 0px 1px black;
+        /* border: white 1px solid; */
+    }
+    /* show description style */
+    .div_shows_ven_desc {
+        float: right;
+        width: 200px;
+        padding-top: 8px;
+        /* height: 20px; */
+        text-align: right;
+        font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 14px;
+        font-style: italic;
+        color: white;
+        /* offset-x | offset-y | blur-radius | color */
+        text-shadow: 0px 0px 1px black;
+        /* border: white 1px solid; */
+    }
+    /* show date style */
+    .div_shows_date {
+        /* float: left; */
+        width: 100%;
+        padding-top: .5vw;
+        text-align: left;
+        font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 3.5vw;
+        color: white;
+        /* offset-x | offset-y | blur-radius | color */
+        text-shadow: 0px 0px 1px black;
+        /* border: white 1px solid; */
+    }
+    /* show information style */
+    .div_shows_info {
+        width: 200px;
+        padding-top: 4px;
+        /* height: 20px; */
+        text-align: left;
+        font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 14px;
+        font-style: italic;
+        color: white;
+        /* offset-x | offset-y | blur-radius | color */
+        text-shadow: 0px 0px 1px black;
+        /* border: white 1px solid; */
+    }
+    /* show information "TICKETS" button container */
+    .div_shows_tix {
+        /* float: left; */
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 110px;
+        text-align: center;
+        font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 14px;
+        color: white;
+        border: white 1px solid;
+    }
+    /* show "SHOW BLOG" button tyle */
+    .div_shows_blog {
+        /* float: left; */
+        margin-bottom: 5px;
+        width: 200px;
+        text-align: left;
+        font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 12px;
+        color: white;
+        /* border: white 1px solid; */
+    }
+}

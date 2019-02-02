@@ -6,55 +6,85 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/nav.css" charset="utf-8">
     <link rel="stylesheet" href="/contact.css" charset="utf-8">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <title>Brakumo - Contact</title>
 </head>
 <body class="bg_contact_img">
     <% include partials/div_nav_bar.ejs %>
-    
-    <br/><div class="div_contact_container">
-        <% if (selected_link === 'CONTACT_SUCCESS') { %>
-            <div class="div_contact_success_header">Thank You!</div>
-            <div class="div_contact_success_blurb">Someone will be in touch with you shortly!</div>
-        <% } %>
-        <% if (selected_link === 'CONTACT_FAILURE') { %>
-            <div class="div_contact_success_header">We're Sorry</div>
-            <div class="div_contact_success_blurb">Something went wrong with the form submission. 
-                <br />Please try again or contact us via email or phone.</div>
-        <% } %>
-            <form action="contact_submit" method="post">
-                <table class="table_contact_container">
-                    <tr>
-                        <td colspan="2">
-                            <div class="div_contact_submit">For booking or any other questions,
-                                <br />please <u><a href="mailto:davie@drumbas.com">email</a></u> us or 
-                                use the form below.
-                                <br />&nbsp;
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="td_contact_left">
-                            <div class="div_contact_label">Name:</div>
-                            <div class="div_contact_label">Email:</div>
-                            <div class="div_contact_label">Comment:</div>
-                        </td>
-                        <td class="td_contact_right">
-                            <div class="div_contact_input"><input type="text" name="name"></div>
-                            <div class="div_contact_input"><input type="text" name="email"></div>
-                            <div class="div_contact_input"><textarea name="comment" rows="10" cols="40" maxlength="1000"
-                                wrap="hard"></textarea></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <div class="div_contact_submit">
-                                <input type="submit" value="Send">
-                                <input type="reset" value="Reset">
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </div>
+    <br/>
+    <div class="div_contact_container">
+        <div id="div_contact_success_header"></div>
+        <div id="div_contact_success_blurb"></div>
+        <form id="submitContact">
+            <table class="table_contact_container">
+                <tr>
+                    <td colspan="2">
+                        <div class="div_contact_submit">For booking or any other questions,
+                            <br />please <u><a href="mailto:davie@drumbas.com">email</a></u> us or 
+                            use the form below.
+                            <br />&nbsp;
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_contact_left">
+                        <div class="div_contact_label">Name:</div>
+                        <div class="div_contact_label">Email:</div>
+                        <div class="div_contact_label">Comment:</div>
+                    </td>
+                    <td class="td_contact_right">
+                        <div class="div_contact_input"><input type="text" name="name" id="name" required></div>
+                        <div class="div_contact_input"><input type="text" name="email" id="email" required></div>
+                        <div class="div_contact_input"><textarea name="comment" id="comment" rows="10" cols="40" maxlength="1000"
+                            wrap="hard" required></textarea></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="g-recaptcha" data-sitekey="6Lc48YkUAAAAAAG4jE9diZsLaW8ktyE4Sr0a6Ucy"></div>
+                        <div class="div_contact_submit">
+                            <button type="submit" value="Send">Send</button>
+                            <button type="reset" value="Reset">Reset</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script>
+        document.getElementById('g-recaptcha-response').onchange(setCaptcha);
+        function setCaptcha(resCaptcha){
+            const captcha = document.querySelector('#g-recaptcha-response').value
+        }
+    </script>
+    <script>
+        document.getElementById('submitContact').addEventListener('submit', submitForm);
+        div_contact_success_header = document.getElementById('div_contact_success_header')
+        div_contact_success_blurb = document.getElementById('div_contact_success_blurb')
+
+        function submitForm(e){
+            e.preventDefault();
+            
+            const name = document.querySelector('#name').value;
+            const email = document.querySelector('#email').value;
+            const comment = document.querySelector('#comment').value;
+            const captcha = document.querySelector('#g-recaptcha-response').value;
+
+            fetch('/contact_submit', {
+            method:'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-type':'application/json'
+            },
+            body:JSON.stringify({name: name, email: email, comment: comment, captcha: captcha})
+            })
+            .then((res) => res.json())
+            .then((data) => {
+            console.log(`data ${data}`);
+            div_contact_success_header.innerHTML = (data.msg1), 
+            div_contact_success_blurb.innerHTML = (data.msg2);
+            });
+        }
+    </script>
 </body>
 </html>
