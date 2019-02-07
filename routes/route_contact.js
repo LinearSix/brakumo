@@ -54,11 +54,22 @@ router.post('/contact_submit', (req, res) => {
       }
     });
 
+    let messageHTML = `<html><head></head><body><table style="border: solid, red, 10px;"><tr><td>${req.body.name}</td><td>${req.body.email}</td><td>${req.body.comment}</td></tr></table></body></html>`
     mailOpts = {
       from: req.body.name + ' &lt;' + req.body.email + '&gt;',
       to: 'davie@drumbas.com',
       subject: 'New message from contact form at drumbas.com',
-      text: `Name: ${req.body.name}\r\nEmail: ${req.body.email}\r\nSays: ${req.body.comment}`
+      // text: `Name: ${req.body.name}\r\nEmail: ${req.body.email}\r\nSays: ${req.body.comment}`,
+      html: `<div style="width: 50vw; 
+        text-align: center; 
+        height: 100%; 
+        font-size: 50px; 
+        color: red; 
+        background: black;">
+        ${req.body.name}<br />
+        ${req.body.email}<br />
+        ${req.body.comment}
+        </div>` // ({path: './mail_format.html'})
     };
 
     smtpTrans.sendMail(mailOpts, function (error, response) {
