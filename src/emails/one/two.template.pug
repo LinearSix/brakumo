@@ -1,0 +1,33 @@
+doctype html
+html
+    head
+        title Brakumo News!
+
+        //- import css/scss stylesheets
+        //- these file names will be replace by gulp with proper css file paths
+        link(rel="stylesheet", href="../../sass/basic.scss")
+        link(rel="stylesheet", href="../../sass/one/styles.scss")
+
+        //- embdedded css allowed, but not sass
+        style.
+            .black{
+                background-color: #000000;
+            }
+            .grey{
+                background-color: #808080;
+            }
+            .full-width{
+                width: 100%;
+            }
+    body
+        table.table(cellpadding="10", cellspacing="0")
+            tr
+                td.black
+                    h1(style="color: white;") Brakumo News!
+            tr
+                td
+                    a(href="/")
+                        img.full-width(src="http://www.drumbas.com/drumbas_complete_01_small.jpg")
+            tr
+                td.grey
+                    h3(style="color: white;") Some shitty shows!

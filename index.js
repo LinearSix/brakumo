@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 2500;
 const bodyParser = require('body-parser');
+const favicon = require('serve-favicon');
 const exphbs = require('express-handlebars');
 const tumblr = require('tumblr.js');
 // const knex = require('./db/knex');
@@ -25,6 +26,9 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // set the folder for npm packages
 app.use(express.static(path.join(__dirname, 'node_modules')))
+
+// set the favicon file
+app.use(favicon(path.join(__dirname,'public','favicon.ico')));
 
 // Set the view engine to ejs
 app.set('view engine', 'ejs')

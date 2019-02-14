@@ -45,6 +45,24 @@ router.post('/admin_home', (req, res, next) => {
 });
 
 // ######################################################################
+// ######################### MAILER ADMIN ################################
+// ######################################################################
+
+// list all admin show information
+router.get('/admin_mailer', (req, res, next) => {
+    knex('mailing_list')
+    .orderBy('mail_name', 'asc')
+    .then((mailing_list) => {
+        let selected_link = 'ADMIN';
+        let admin_link = 'ADMIN_MAILER';
+        res.render('admin_mailer', { mailing_list, selected_link, admin_link })
+    })
+    .catch((err) => {
+        next(err);
+    });
+});
+
+// ######################################################################
 // ######################### VENUE ADMIN ################################
 // ######################################################################
 

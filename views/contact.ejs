@@ -11,11 +11,20 @@
 </head>
 <body class="bg_contact_img">
     <% include partials/div_nav_bar.ejs %>
-    <br/>
+    <br />&nbsp;<br />
+    <% if (selected_link === 'CONTACT_SUCCESS') { %>
+        <div class="div_contact_success_header">Thank You!</div>
+        <div class="div_contact_success_blurb">A staff member will be in touch with you shortly!</div>
+    <% } %>
+    <% if (selected_link === 'CONTACT_FAILURE') { %>
+        <div class="div_contact_success_header">We're Sorry</div>
+        <div class="div_contact_success_blurb">Something went wrong with the form submission. 
+            <br />Please try again or contact us via email or phone.</div>
+    <% } %>
     <div class="div_contact_container">
         <div id="div_contact_success_header"></div>
         <div id="div_contact_success_blurb"></div>
-        <form id="submitContact">
+        <form onsubmit="return validateForm()" id="contact_submit">
             <table class="table_contact_container">
                 <tr>
                     <td colspan="2">
@@ -52,39 +61,21 @@
         </form>
     </div>
     <script>
-        document.getElementById('g-recaptcha-response').onchange(setCaptcha);
-        function setCaptcha(resCaptcha){
-            const captcha = document.querySelector('#g-recaptcha-response').value
-        }
-    </script>
-    <script>
-        document.getElementById('submitContact').addEventListener('submit', submitForm);
-        div_contact_success_header = document.getElementById('div_contact_success_header')
-        div_contact_success_blurb = document.getElementById('div_contact_success_blurb')
-
-        function submitForm(e){
-            e.preventDefault();
-            
-            const name = document.querySelector('#name').value;
-            const email = document.querySelector('#email').value;
-            const comment = document.querySelector('#comment').value;
+        function validateForm(e) {
             const captcha = document.querySelector('#g-recaptcha-response').value;
-
-            fetch('/contact_submit', {
-            method:'POST',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-type': 'application/json'
-            },
-            body:JSON.stringify({name: name, email: email, comment: comment, captcha: captcha})
-            })
-            .then((res) => res.json())
-            .then((data) => {
-            console.log(`data ${data}`);
-            div_contact_success_header.innerHTML = (data.msg1), 
-            div_contact_success_blurb.innerHTML = (data.msg2);
-            });
-        }
+            if (captcha === undefined || captcha === '' || captcha === null ) {
+                alert("Please select captcha before submitting the form.");
+                // e.preventDefault();
+                return false;
+            } else {
+                let form = document.getElementById('contact_submit');
+                form.action = 'contact_submit';
+                form.method = 'POST';
+                // form.enctype = "multipart/form-data"
+                form.submit();
+                return true;
+            };
+        };
     </script>
 </body>
 </html>

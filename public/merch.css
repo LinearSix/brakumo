@@ -10,6 +10,10 @@ body, html {
                   url("drumbas_close.jpg");
     background-size: 1600px; 
 }
+@font-face {
+    font-family: "Asche";
+    src: url("asche-bold-webfont.ttf") format("truetype");
+}
 .table_merch_container {
     width: 100%;
     border-bottom: white 1px solid;
@@ -72,8 +76,28 @@ body, html {
     border: darkblue 2px solid;
     box-shadow: 5px 5px 0px gray;
 }
+.div_merch_img {
+    float: right;
+    text-align: center;
+    font-family: 'Asche';
+    font-size: 40px;
+    font-weight: 100;
+    letter-spacing: 20px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    width: 300px;
+    border: slategrey solid 1px;
+    background: black;
+}
+#img_logo {
+    width: 280px;
+    -webkit-filter: invert(1);
+    filter: invert(1);
+}
 .div_merch_item {
-    /* float: left; */
+    float: right;
     width: 100%;
     padding-top: 4px;
     text-align: right;
@@ -135,6 +159,7 @@ a {
 .td_gallery {
     width: 10%;
 }
+
 /* zoom css */
 * {box-sizing: border-box;}
 
