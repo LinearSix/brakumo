@@ -44,6 +44,7 @@ const route_gallery = require('./routes/route_gallery');
 const route_mail = require('./routes/route_mail');
 const route_tumblr = require('./routes/route_tumblr');
 const route_admin = require('./routes/route_admin');
+const route_admin_fanmail = require('./routes/route_admin_fanmail');
 
 // use express routes
 app.use(index);
@@ -56,6 +57,7 @@ app.use(route_gallery);
 app.use(route_mail);
 app.use(route_tumblr);
 app.use(route_admin);
+app.use(route_admin_fanmail);
 
 // set redirect for users adding a /
 app.get('/', function(req, res){ res.redirect('index')});

@@ -34,32 +34,6 @@ router.post('/contact_submit', (req, res) => {
   const secretKey = '6Lc48YkUAAAAAHSWF_kgVAaOspjeFKmGFtE9NGgD';
   const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captcha}&remoteip=${req.connection.remoteAddress}`;
   console.log(`verifyUrl: ${verifyUrl}`);
-
-  // grab the current show list for the email
-  function getShows() {
-    let dataArr =[];
-    return knex('shows')
-    .innerJoin('venues', 'venue_id', 'ven_id')
-    .where('show_date', '>=', (knex.fn.now()))
-    .orderBy('show_date', 'asc')
-       .then(function(shows) {
-           shows.forEach(function(value) {
-              dataArr.push(value)
-           });
-           return dataArr;
-       });
-  }
-
-  let showsHTML = ``;
-  async function returnedShows() {
-    let showData = await getShows();
-    console.log(`ALL DATA: ${showData}`);
-    for (let i = 0; i < showData.length; i++) {
-      showsHTML = showsHTML + `<p>${showData[i].show_date}<br />${showData[i].show_info}`
-      console.log(`showsHTML: ${showsHTML}`);
-    };
-  };
-  returnedShows();
   
   // Make Request To VerifyURL
   request(verifyUrl, (err, response, verifyBody) => {
@@ -71,9 +45,7 @@ router.post('/contact_submit', (req, res) => {
       let selected_link = 'CONTACT_FAILURE'
     res.render('contact', { selected_link })
     } else {
-    // Captcha was successful, send the mail
-
-
+      // If successful, send the mail
       let mailOpts, smtpTrans;
       smtpTrans = nodemailer.createTransport({
         host: 'smtp.gmail.com',
@@ -89,20 +61,16 @@ router.post('/contact_submit', (req, res) => {
         to: 'davie@drumbas.com',
         subject: 'New message from contact form at drumbas.com',
         // text: `Name: ${req.body.name}\r\nEmail: ${req.body.email}\r\nSays: ${req.body.comment}`,
-        html: 
-        `<div style="width: 50vw; 
+        html: `<div style="width: 50vw; 
           text-align: center; 
           height: 100%; 
           font-size: 50px; 
           color: red; 
           background: black;">
-          <img src="http://www.drumbas.com/drumbas_complete_01_small.jpg" />
-          ${showsHTML}<br />
           ${req.body.name}<br />
           ${req.body.email}<br />
-          ${req.body.comment}<br />
-        </div>` 
-        // ({path: 'email-dist/two.template.html'})
+          ${req.body.comment}
+          </div>` // ({path: './mail_format.html'})
       };
 
       smtpTrans.sendMail(mailOpts, function (error, response) {
