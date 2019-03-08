@@ -36,7 +36,7 @@
         <div class="div_nav_link"><a href="/mail">MAILING LIST</a></div>
         <% } %>
         <% if (selected_link === 'ADMIN') { %>
-            <br/>
+            <p>
             <% if (admin_link) { %>
                 <% if (admin_link === 'ADMIN_VENUES') { %>
                     <div class="div_admin_link"><u>VENUES ADMIN</u></div>
@@ -63,12 +63,15 @@
                 <% } else { %>
                     <div class="div_admin_link"><a href="/admin_mail">MAILING ADMIN</a></div>
                 <% } %>
+            </p>
             <% } else { %>
+            <p>
                 <div class="div_admin_link"><a href="/admin_venues">VENUES ADMIN</a></div>
                 <div class="div_admin_link"><a href="/admin_shows">SHOWS ADMIN</a></div>
                 <div class="div_admin_link"><a href="/admin_drumbas">DRUMBAS ADMIN</a></div>
                 <div class="div_admin_link"><a href="/admin_press">PRESS ADMIN</a></div>
                 <div class="div_admin_link"><a href="/admin_mail">MAILING ADMIN</a></div>
+            </p>
             <% } %>
         <% } %>
     <% } else { %>

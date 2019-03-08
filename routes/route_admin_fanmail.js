@@ -40,7 +40,7 @@ router.post('/admin_fanmail_submit', (req, res) => {
   }
 
   // Secret Key and Verify URL
-  const secretKey = '6Lc48YkUAAAAAHSWF_kgVAaOspjeFKmGFtE9NGgD';
+  const secretKey = process.env.SECRET_CAPTCHA;
   const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captcha}&remoteip=${req.connection.remoteAddress}`;
   console.log(`verifyUrl: ${verifyUrl}`);
 
@@ -89,7 +89,7 @@ router.post('/admin_fanmail_submit', (req, res) => {
            });
            return fansArr;
        });
-  }
+  };
 
   //  prepare the recipient list array
   let fansHTML = [];
@@ -122,8 +122,8 @@ router.post('/admin_fanmail_submit', (req, res) => {
         port: 465,
         secure: true,
         auth: {
-          user: 'davie@brandtprecision.com', // get this into an environment variable!
-          pass: 'JunkAccount001' // get this into an environment variable!
+          user: process.env.VAR_USER, // get this into an environment variable!
+          pass: process.env.VAR_PASS // get this into an environment variable!
         }
       });
 

@@ -2,17 +2,18 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 2500;
+require('dotenv').config()
 const bodyParser = require('body-parser');
 const favicon = require('serve-favicon');
 const exphbs = require('express-handlebars');
 const tumblr = require('tumblr.js');
 // const knex = require('./db/knex');
 
-// app.use(dotenv);
 
 // use body-parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 
 // set the folder for ejs files
 // app.set('views', path.join(__dirname, 'views'));
