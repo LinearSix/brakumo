@@ -9,8 +9,6 @@ const nodemailer = require('nodemailer');
 const Recaptcha = require('express-recaptcha').Recaptcha;
 // site
 // 6Lc48YkUAAAAAAG4jE9diZsLaW8ktyE4Sr0a6Ucy
-// sec
-// 6Lc48YkUAAAAAHSWF_kgVAaOspjeFKmGFtE9NGgD
 
 // render empty contact page
 router.get('/contact', (req, res) => {
@@ -31,7 +29,7 @@ router.post('/contact_submit', (req, res) => {
   }
 
   // Secret Key and Verify URL
-  const secretKey = '6Lc48YkUAAAAAHSWF_kgVAaOspjeFKmGFtE9NGgD';
+  const secretKey = process.env.SECRET_CAPTCHA;
   const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captcha}&remoteip=${req.connection.remoteAddress}`;
   console.log(`verifyUrl: ${verifyUrl}`);
   

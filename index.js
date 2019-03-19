@@ -9,11 +9,9 @@ const exphbs = require('express-handlebars');
 const tumblr = require('tumblr.js');
 // const knex = require('./db/knex');
 
-
 // use body-parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 
 // set the folder for ejs files
 // app.set('views', path.join(__dirname, 'views'));
@@ -40,7 +38,7 @@ const route_shows = require('./routes/route_shows');
 const route_drumbas = require('./routes/route_drumbas');
 const route_merch = require('./routes/route_merch');
 const route_contact = require('./routes/route_contact');
-const route_press = require('./routes/route_press');
+const route_media = require('./routes/route_media');
 const route_gallery = require('./routes/route_gallery');
 const route_mail = require('./routes/route_mail');
 const route_tumblr = require('./routes/route_tumblr');
@@ -53,7 +51,7 @@ app.use(route_shows);
 app.use(route_drumbas);
 app.use(route_merch);
 app.use(route_contact);
-app.use(route_press);
+app.use(route_media);
 app.use(route_gallery);
 app.use(route_mail);
 app.use(route_tumblr);

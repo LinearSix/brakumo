@@ -15,10 +15,10 @@
         <% } else { %>
         <div class="div_nav_link"><a href="/drumbas">DRUMBAS</a></div>
         <% } %>
-        <% if (selected_link === 'PRESS') { %>
+        <% if (selected_link === 'MEDIA') { %>
             <div class="div_nav_link"><u>MEDIA</u></div>
         <% } else { %>
-        <div class="div_nav_link"><a href="/press">MEDIA</a></div>
+        <div class="div_nav_link"><a href="/media">MEDIA</a></div>
         <% } %>
         <% if (selected_link === 'MERCH') { %>
             <div class="div_nav_link"><u>MERCH</u></div>
@@ -35,8 +35,9 @@
         <% } else { %>
         <div class="div_nav_link"><a href="/mail">MAILING LIST</a></div>
         <% } %>
+    </div>
+    <div class="div_nav">
         <% if (selected_link === 'ADMIN') { %>
-            <p>
             <% if (admin_link) { %>
                 <% if (admin_link === 'ADMIN_VENUES') { %>
                     <div class="div_admin_link"><u>VENUES ADMIN</u></div>
@@ -59,9 +60,9 @@
                     <div class="div_admin_link"><a href="/admin_press">PRESS ADMIN</a></div>
                 <% } %>
                 <% if (admin_link === 'ADMIN_MAIL') { %>
-                    <div class="div_admin_link"><u>MAILING ADMIN</u></div>
+                    <div class="div_admin_link"><u>FANMAIL ADMIN</u></div>
                 <% } else { %>
-                    <div class="div_admin_link"><a href="/admin_mail">MAILING ADMIN</a></div>
+                    <div class="div_admin_link"><a href="/admin_fanmail">FANMAIL ADMIN</a></div>
                 <% } %>
             </p>
             <% } else { %>
@@ -69,16 +70,18 @@
                 <div class="div_admin_link"><a href="/admin_venues">VENUES ADMIN</a></div>
                 <div class="div_admin_link"><a href="/admin_shows">SHOWS ADMIN</a></div>
                 <div class="div_admin_link"><a href="/admin_drumbas">DRUMBAS ADMIN</a></div>
-                <div class="div_admin_link"><a href="/admin_press">PRESS ADMIN</a></div>
-                <div class="div_admin_link"><a href="/admin_mail">MAILING ADMIN</a></div>
+                <div class="div_admin_link"><a href="/admin_media">MEDIA ADMIN</a></div>
+                <div class="div_admin_link"><a href="/admin_fanmail">FANMAIL ADMIN</a></div>
             </p>
             <% } %>
         <% } %>
+    </div>
+    <div class="div_nav">
     <% } else { %>
         <div class="div_nav_link"><a href="/index">HOME</a></div>
         <div class="div_nav_link"><a href="/shows">SHOWS</a></div>
         <div class="div_nav_link"><a href="/drumbas">DRUMBAS</a></div>
-        <div class="div_nav_link"><a href="/press">MEDIA</a></div>
+        <div class="div_nav_link"><a href="/media">MEDIA</a></div>
         <div class="div_nav_link"><a href="/merch">MERCH</a></div>
         <div class="div_nav_link"><a href="/contact">CONTACT</a></div>
         <div class="div_nav_link"><a href="/mail">MAILING LIST</a></div>

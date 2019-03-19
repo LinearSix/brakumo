@@ -5,31 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/nav.css" charset="utf-8">
+    <link rel="stylesheet" href="/admin.css" charset="utf-8">
     <link rel="stylesheet" href="/contact.css" charset="utf-8">
     <link rel="stylesheet" href="/admin_fanmail.css" charset="utf-8">
     <script src='https://www.google.com/recaptcha/api.js'></script>
-    <title>Brakumo - Contact</title>
+    <title>Brakumo - Fanmail Admin</title>
 </head>
 <body class="bg_contact_img">
     <% include partials/div_nav_bar.ejs %>
-    <br />&nbsp;<br />
     <% if (selected_link === 'CONTACT_SUCCESS') { %>
+        <br />&nbsp;<br />
         <div class="div_contact_success_header">Thank You!</div>
         <div class="div_contact_success_blurb">A staff member will be in touch with you shortly!</div>
     <% } %>
     <% if (selected_link === 'CONTACT_FAILURE') { %>
+        <br />&nbsp;<br />
         <div class="div_contact_success_header">We're Sorry</div>
         <div class="div_contact_success_blurb">Something went wrong with the form submission. 
             <br />Please try again or contact us via email or phone.</div>
     <% } %>
     <div class="div_contact_container">
-        <div id="div_contact_success_header"></div>
-        <div id="div_contact_success_blurb"></div>
+        <!-- <div id="div_contact_success_header"></div> -->
+        <!-- <div id="div_contact_success_blurb"></div> -->
         <table class="table_mailer_container">
             <tr>
-                <td colspan="2">
+                <td>
                     <div class="div_admin_button">
-                        <a href="/admin_mail_add"><button>ADD NEW MAIL RECIPIENT</button></a>&nbsp;
+                        <a href="/admin_fanmail_add"><button>ADD NEW MAIL RECIPIENT</button></a>&nbsp;
                     </div>
                 </td>
             </tr>
@@ -37,13 +39,16 @@
         <table class="table_admin_container">
             <tr>
                 <td class="td_mailer_left">
-                    <div class="div_mailer_name"><a href="/admin_mailer/name">Name</a></div>
+                    <div class="div_mailer_name"><a href="/admin_fanmail/name">Name</a></div>
                 </td>
                 <td class="td_mailer_right">
-                    <div class="div_mailer_email"><a href="/admin_mailer/email">Email</a></div>
+                    <div class="div_mailer_email"><a href="/admin_fanmail/email">Email</a></div>
                 </td>
                 <td class="td_mailer_right">
-                    <div class="div_mailer_state"><a href="/admin_mailer/state">Email</a></div>
+                    <div class="div_mailer_state"><a href="/admin_fanmail/state">State</a></div>
+                </td>
+                <td class="td_mailer_right">
+                    <div class="div_mailer_state"><a href="/admin_fanmail/preference">Preference</a></div>
                 </td>
             </tr>
             <% for (let i=0; i < mailing_list.length; i++) { %>
@@ -57,9 +62,22 @@
                 <td class="td_mailer_right">
                     <div class="div_mailer_state"><%= mailing_list[i].mail_state %></div>
                 </td>
+                <td class="td_mailer_right">
+                    <div class="div_mailer_state">
+                        <% if (mailing_list[i].mail_preference_1 === 1) { %>
+                            All
+                        <% } else if (mailing_list[i].mail_preference_1 === 2) { %>
+                            Shows Only
+                        <% } else if (mailing_list[i].mail_preference_1 === 3) { %>
+                            Shows for State
+                        <% } else { %>
+                            None Selected
+                        <% } %>
+                    </div>
+                </td>
             </tr>
             <tr>
-                <td colspan="3">
+                <td colspan="5">
                     <div class="div_admin_button">
                         <a href="/admin_mail_edit/<%= mailing_list[i].mail_id %>"><button>EDIT</button></a>&nbsp;
                         <a href="/admin_mail_delete/<%= mailing_list[i].mail_id %>"><button>DELETE</button></a>

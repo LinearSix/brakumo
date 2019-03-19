@@ -9,10 +9,8 @@ const nodemailer = require('nodemailer');
 const Recaptcha = require('express-recaptcha').Recaptcha;
 // site
 // 6Lc48YkUAAAAAAG4jE9diZsLaW8ktyE4Sr0a6Ucy
-// sec
-// 6Lc48YkUAAAAAHSWF_kgVAaOspjeFKmGFtE9NGgD
 
-// render empty contact page
+// render basic fanmail page
 router.get('/admin_fanmail', (req, res, next) => {
   knex('mailing_list')
   .orderBy('mail_name', 'asc')
@@ -26,6 +24,63 @@ router.get('/admin_fanmail', (req, res, next) => {
   });
 });
 
+// sort by name
+router.get('/admin_fanmail/name', (req, res, next) => {
+  knex('mailing_list')
+  .orderBy('mail_name', 'asc')
+  .then((mailing_list) => {
+      let selected_link = 'ADMIN';
+      let admin_link = 'ADMIN_FANMAIL';
+      res.render('admin_fanmail', { mailing_list, selected_link, admin_link })
+  })
+  .catch((err) => {
+      next(err);
+  });
+});
+
+// sort by email
+router.get('/admin_fanmail/email', (req, res, next) => {
+  knex('mailing_list')
+  .orderBy('mail_email', 'asc')
+  .then((mailing_list) => {
+      let selected_link = 'ADMIN';
+      let admin_link = 'ADMIN_FANMAIL';
+      res.render('admin_fanmail', { mailing_list, selected_link, admin_link })
+  })
+  .catch((err) => {
+      next(err);
+  });
+});
+
+// sort by state
+router.get('/admin_fanmail/state', (req, res, next) => {
+  knex('mailing_list')
+  .orderBy('mail_state', 'asc')
+  .then((mailing_list) => {
+      let selected_link = 'ADMIN';
+      let admin_link = 'ADMIN_FANMAIL';
+      res.render('admin_fanmail', { mailing_list, selected_link, admin_link })
+  })
+  .catch((err) => {
+      next(err);
+  });
+});
+
+// sort by preference
+router.get('/admin_fanmail/preference', (req, res, next) => {
+  knex('mailing_list')
+  .orderBy('mail_preference_1', 'asc')
+  .then((mailing_list) => {
+      let selected_link = 'ADMIN';
+      let admin_link = 'ADMIN_FANMAIL';
+      res.render('admin_fanmail', { mailing_list, selected_link, admin_link })
+  })
+  .catch((err) => {
+      next(err);
+  });
+});
+
+// send the mail
 router.post('/admin_fanmail_submit', (req, res) => {
   console.log(`g-recaptcha-response: ${req.body["g-recaptcha-response"]}`);
   let captcha = req.body["g-recaptcha-response"];
@@ -71,7 +126,7 @@ router.post('/admin_fanmail_submit', (req, res) => {
       } else {
         showTime = `${parseInt(showData[i].show_time.substring(0, 2), 10)}:${showData[i].show_time.substring(3, 5)}am`;
       };
-      showsHTML = showsHTML + `<p><a href="http://localhost:2500/shows/${showData[i].show_id}">${showData[i].show_date.toDateString()} at ${showData[i].ven_name}</a><br />${showTime}<br />${showData[i].show_info}`
+      showsHTML = showsHTML + `<p><a href="www.drumbas.com/shows/${showData[i].show_id}">${showData[i].show_date.toDateString()} at ${showData[i].ven_name}</a><br />${showTime}<br />${showData[i].show_info}`
       console.log(`showsHTML: ${showsHTML}`);
     };
   };

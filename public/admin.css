@@ -27,10 +27,10 @@ a {
     text-decoration: none;
 }
 .div_admin_container {
-    padding-top: 250px;
+    /* padding-top: 250px; */
     width: 100%;
     height: 100%;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 /* scrolling shows container */
 .table_login_container {
