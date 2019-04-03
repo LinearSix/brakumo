@@ -28,78 +28,149 @@
     <div class="div_contact_container">
         <div id="div_contact_success_header"></div>
         <div id="div_contact_success_blurb"></div>
-        <form onsubmit="return validateForm()" id="admin_send_mail_submit">
-        <table class="table_contact_container">   
-                <tr>
-                    <td class="td_contact_left">
-                        <div class="div_contact_label">Greeting:</div>
-                    </td>
-                    <td class="td_contact_right">
-                        <div class="div_contact_input"><textarea name="greeting" id="greeting" rows="10" cols="40" maxlength="1000"
-                            wrap="hard" required></textarea></div>
-                    </td>
-                </tr>
-            </table>
-        <% for (i=0; i<send_mail.length; i++) { %>
-            <a name="<%= send_mail[i].show_id %>"></a>
-            <table class="table_shows_container">
-                <tr>
-                    <td class="td_shows_left">
-                        <div class="div_shows_venue"><%= send_mail[i].ven_name %></div>
-                        <div class="div_shows_address"><%= send_mail[i].ven_address_1 %>
-                        <% if (send_mail[i].ven_address_2) { %>
-                            <br/><%= send_mail[i].ven_address_2 %>
-                        <% } %>
-                        
-                        <br/><%= send_mail[i].ven_city %>, <%= send_mail[i].ven_state %> <%= send_mail[i].ven_postal %>
-                        <br/><%= send_mail[i].ven_phone %> | <u><a href="<%= send_mail[i].ven_web %>" target="_blank">Website</a></u></div>
-                        <div class="div_shows_ven_desc"><%= send_mail[i].ven_desc %></div>
-                    </td>
-                    <td class="td_shows_right">
-                        <div class="div_shows_date"><%= send_mail[i].show_date.toDateString() %> - 
-                            <% if (send_mail[i].show_time.substring(0, 2) > 12) { %>
-                                <%= parseInt(Number(send_mail[i].show_time.substring(0, 2)) - 12, 10) %>:<%= send_mail[i].show_time.substring(3, 5) %>pm
-                            <% } else { %>
-                                <%= parseInt(send_mail[i].show_time.substring(0, 2), 10) %>:<%= send_mail[i].show_time.substring(3, 5) %>am
-                            <% } %>
-                        </div>
-                        <div class="div_shows_info"><%= send_mail[i].show_info %></div>
-                        <% if (send_mail[i].show_ticket_link !== 'NA') { %>
-                            <a href="<%= send_mail[i].show_ticket_link %>" target="_blank"><div class="div_shows_tix">TICKETS</div></a>
-                        <% } else { %>
-                            <div class="div_shows_info">Advance tickets not available</div>
-                        <% } %>
-                        <% for (let j=0; j<blogs.length; j++) { %>
-                            <% if (blogs[j].blog_show_id === send_mail[i].show_id) { %>
-                                <u><a href="/press"><div class="div_shows_blog">SHOW MEDIA - <%= blogs[j].blog_date.toDateString() %></div></a></u>
-                                <!-- <u><a href="/press/<%= blogs[j].blog_id %>"><div class="div_shows_blog">SHOW MEDIA - <%= blogs[j].blog_date.toDateString() %></div></a></u> -->
-                            <% } %>
-                        <% } %>
-                    </td>
-                </tr>
-            </table>
-        <% } %>
-            <table class="table_contact_container">
-                <tr>
-                    <td class="td_contact_left">
-                        <div class="div_contact_label">Summary:</div>
-                    </td>
-                    <td class="td_contact_right">
-                        <div class="div_contact_input"><textarea name="summary" id="summary" rows="10" cols="40" maxlength="1000"
-                            wrap="hard" required></textarea></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <div class="g-recaptcha" data-sitekey="6Lc48YkUAAAAAAG4jE9diZsLaW8ktyE4Sr0a6Ucy"></div>
-                        <div class="div_contact_submit">
-                            <button type="submit" value="Send">Send</button>
-                            <button type="reset" value="Reset">Reset</button>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </form>
+        <table>
+            <tr>
+                <td>
+                    <form onsubmit="return validateForm()" id="admin_send_mail_submit">
+                    <table class="table_contact_container">   
+                            <tr>
+                                <td class="td_contact_left">
+                                    <div class="div_contact_label">Greeting:</div>
+                                </td>
+                                <td class="td_contact_right">
+                                    <div class="div_contact_input"><textarea class="greeting" name="greeting" id="greeting" rows="10" cols="40" maxlength="1000"
+                                        wrap="hard" required></textarea></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td_contact_left">
+                                    <div class="div_contact_label">Image:</div>
+                                </td>
+                                <td class="td_contact_right">
+                                    <div class="div_contact_input"><input type="file" name="image" id="image" /></div>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table_contact_container">
+                            <tr>
+                                <td class="td_contact_left">
+                                    <div class="div_contact_label">Summary:</div>
+                                </td>
+                                <td class="td_contact_right">
+                                    <div class="div_contact_input"><textarea class="summary" name="summary" id="summary" rows="10" cols="40" maxlength="1000"
+                                        wrap="hard" required></textarea></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="g-recaptcha" data-sitekey="6Lc48YkUAAAAAAG4jE9diZsLaW8ktyE4Sr0a6Ucy"></div>
+                                    <div class="div_contact_submit">
+                                        <button type="submit" value="Send">Send</button>
+                                        <button type="reset" value="Reset">Reset</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </td>
+                <td>
+                    <div class="div_sample_mail">
+                        <table style="width: 600px; border: 0px;">
+                            <tr>
+                                <td style="font-family: 'Asche', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+                                text-align: center; 
+                                height: 100%; 
+                                font-size: 50px; 
+                                color: white; 
+                                background: black;">
+                                BRAKUMO NEWS!
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+                                text-align: center; 
+                                height: 100%; 
+                                font-size: 16px; 
+                                color: black; 
+                                background: grey;">
+                                <div class="result_greeting">Greeting</div><br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+                                text-align: center; 
+                                height: 100%; 
+                                font-size: 16px; 
+                                color: black; 
+                                background: grey;">
+                                Currently scheduled shows:
+                                <br />&nbsp;<br />
+                                <% for (i=0; i<send_mail.length; i++) { %>
+                                    <a name="<%= send_mail[i].show_id %>"></a>
+                                    <table class="table_shows_container">
+                                        <tr>
+                                            <td class="td_shows_left">
+                                                <div class="div_shows_venue"><%= send_mail[i].ven_name %></div>
+                                                <div class="div_shows_address"><%= send_mail[i].ven_address_1 %>
+                                                <% if (send_mail[i].ven_address_2) { %>
+                                                    <br/><%= send_mail[i].ven_address_2 %>
+                                                <% } %>
+                                                
+                                                <br/><%= send_mail[i].ven_city %>, <%= send_mail[i].ven_state %> <%= send_mail[i].ven_postal %>
+                                                <br/><%= send_mail[i].ven_phone %> | <u><a href="<%= send_mail[i].ven_web %>" target="_blank">Website</a></u></div>
+                                                <div class="div_shows_ven_desc"><%= send_mail[i].ven_desc %></div>
+                                            </td>
+                                            <td class="td_shows_right">
+                                                <div class="div_shows_date"><%= send_mail[i].show_date.toDateString() %> - 
+                                                    <% if (send_mail[i].show_time.substring(0, 2) > 12) { %>
+                                                        <%= parseInt(Number(send_mail[i].show_time.substring(0, 2)) - 12, 10) %>:<%= send_mail[i].show_time.substring(3, 5) %>pm
+                                                    <% } else { %>
+                                                        <%= parseInt(send_mail[i].show_time.substring(0, 2), 10) %>:<%= send_mail[i].show_time.substring(3, 5) %>am
+                                                    <% } %>
+                                                </div>
+                                                <div class="div_shows_info"><%= send_mail[i].show_info %></div>
+                                                <% if (send_mail[i].show_ticket_link !== 'NA') { %>
+                                                    <a href="<%= send_mail[i].show_ticket_link %>" target="_blank"><div class="div_shows_tix">TICKETS</div></a>
+                                                <% } else { %>
+                                                    <div class="div_shows_info">Advance tickets not available</div>
+                                                <% } %>
+                                                <% for (let j=0; j<blogs.length; j++) { %>
+                                                    <% if (blogs[j].blog_show_id === send_mail[i].show_id) { %>
+                                                        <u><a href="/press"><div class="div_shows_blog">SHOW MEDIA - <%= blogs[j].blog_date.toDateString() %></div></a></u>
+                                                        <!-- <u><a href="/press/<%= blogs[j].blog_id %>"><div class="div_shows_blog">SHOW MEDIA - <%= blogs[j].blog_date.toDateString() %></div></a></u> -->
+                                                    <% } %>
+                                                <% } %>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                <% } %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+                                text-align: center; 
+                                height: 100%; 
+                                font-size: 16px; 
+                                color: black; 
+                                background: grey;">
+                                <img class="image_result" src="http://www.drumbas.com/drumbas_complete_01_small.jpg" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+                                text-align: center; 
+                                height: 100%; 
+                                font-size: 16px; 
+                                color: black; 
+                                background: grey;">
+                                <div class="result_summary">Summary</div><br />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
     <script>
         function validateForm(e) {
@@ -112,11 +183,34 @@
                 let form = document.getElementById('admin_send_mail_submit');
                 form.action = 'admin_send_mail_submit';
                 form.method = 'POST';
-                // form.enctype = "multipart/form-data"
+                form.enctype = "multipart/form-data"
                 form.submit();
                 return true;
             };
         };
+    </script>
+    <script>
+        // update sample display in realtime
+        const textGreeting = document.querySelector('.greeting');
+
+        textGreeting.addEventListener('change', (event) => {
+            const result_greeting = document.querySelector('.result_greeting');
+            result_greeting.textContent = `${event.target.value}`;
+        });
+
+        const imageFeature = document.querySelector('.feature');
+
+        imageFeature.addEventListener('change', (event) => {
+            const result_image = document.querySelector('.result_image');
+            result_image.textContent = `${event.target.value}`;
+        });
+
+        const textSummary = document.querySelector('.summary');
+
+        textSummary.addEventListener('change', (event) => {
+            const result_summary = document.querySelector('.result_summary');
+            result_summary.textContent = `${event.target.value}`;
+        });
     </script>
 </body>
 </html>
