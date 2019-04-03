@@ -1,0 +1,13 @@
+// use this to compile single files in terminal
+// sass input.scss output.css
+// use this to watch and compile changes in directories
+// sass --watch directory/subdirectory:target_directory/target_subdirectory
+// sass --watch DVP/git_repositories/q2/brakumo/sass:DVP/git_repositories/q2/brakumo/public
+
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}

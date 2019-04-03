@@ -59,10 +59,15 @@
                 <% } else { %>
                     <div class="div_admin_link"><a href="/admin_press">PRESS ADMIN</a></div>
                 <% } %>
-                <% if (admin_link === 'ADMIN_MAIL') { %>
+                <% if (admin_link === 'ADMIN_FANMAIL') { %>
                     <div class="div_admin_link"><u>FANMAIL ADMIN</u></div>
                 <% } else { %>
                     <div class="div_admin_link"><a href="/admin_fanmail">FANMAIL ADMIN</a></div>
+                <% } %>
+                <% if (admin_link === 'ADMIN_SEND_MAIL') { %>
+                    <div class="div_admin_link"><u>SEND MAIL</u></div>
+                <% } else { %>
+                    <div class="div_admin_link"><a href="/admin_send_mail">SEND MAIL</a></div>
                 <% } %>
             </p>
             <% } else { %>
