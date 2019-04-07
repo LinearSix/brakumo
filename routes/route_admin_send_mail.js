@@ -4,11 +4,35 @@ const express = require('express');
 const router = express.Router();
 const knex = require('../db/knex');
 const bodyParser = require('body-parser');
+const multer = require('multer');
 const request = require('request');
 const nodemailer = require('nodemailer');
 const Recaptcha = require('express-recaptcha').Recaptcha;
 // site
 // 6Lc48YkUAAAAAAG4jE9diZsLaW8ktyE4Sr0a6Ucy
+
+// SET STORAGE FOR IMAGE UPLOADS
+// let storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, 'uploads')
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, file.fieldname + '-' + Date.now())
+//   }
+// })
+ 
+// let upload = multer({ storage: storage })
+
+// app.post('/uploadfile', upload.single('myFile'), (req, res, next) => {
+//   const file = req.file
+//   if (!file) {
+//     const error = new Error('Please upload a file')
+//     error.httpStatusCode = 400
+//     return next(error)
+//   }
+//     res.send(file)
+  
+// })
 
 // render basic send mail page
 router.get('/admin_send_mail', (req, res, next) => {
@@ -40,8 +64,10 @@ router.post('/admin_send_mail_submit', (req, res) => {
     captcha === null
   ){
     let selected_link = 'FANMAIL_FAILURE'
-    let admin_link = 'ADMIN_send_MAIL';
-    res.render('admin_send_mail', { selected_link, admin_link })
+    let admin_link = 'ADMIN_SEND_MAIL';
+    let send_mail = [];
+    let blogs = [];
+    res.render('admin_send_mail', { send_mail, blogs, selected_link, admin_link })
   }
 
   // Secret Key and Verify URL
@@ -140,59 +166,82 @@ router.post('/admin_send_mail_submit', (req, res) => {
           subject: 'Brakumo News!',
           // text: `Name: ${req.body.name}\r\nEmail: ${req.body.email}\r\nSays: ${req.body.comment}`,
           html: 
-          `<table style="width: 80vw; border: 0px;">
-            <tr>
-              <td style="font-family: 'Asche', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
-              text-align: center; 
-              height: 100%; 
-              font-size: 50px; 
-              color: white; 
-              background: black;">
-              BRAKUMO NEWS!
-              </td>
-            </tr>
-            <tr>
-              <td style="font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
-              text-align: center; 
-              height: 100%; 
-              font-size: 16px; 
-              color: black; 
-              background: grey;">
-              ${req.body.greeting}<br />
-              </td>
-            </tr>
-            <tr>
-              <td style="font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
-              text-align: center; 
-              height: 100%; 
-              font-size: 16px; 
-              color: black; 
-              background: grey;">
-              Currently scheduled shows:
-              <br />&nbsp;<br />
-              ${showsHTML}
-              </td>
-            </tr>
-            <tr>
-              <td style="font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
-              text-align: center; 
-              height: 100%; 
-              font-size: 16px; 
-              color: black; 
-              background: grey;">
-              <img src="http://www.drumbas.com/drumbas_complete_01_small.jpg" />
-              </td>
-            </tr>
-            <tr>
-              <td style="font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
-              text-align: center; 
-              height: 100%; 
-              font-size: 16px; 
-              color: black; 
-              background: grey;">
-              ${req.body.summary}<br />
-              </td>
-            </tr>
+          `<table cellspacing="0" cellpadding="0"; style="width: 100%; border: 0px;">
+              <tr>
+                  <td align="center">
+                      <table cellspacing="0" cellpadding="0"; style="width: 600px; border: 0px;">
+                          <tr>
+                            <td style="font-family: 'Asche', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+                            text-align: center; 
+                            height: 100%; 
+                            font-size: 50px; 
+                            color: white; 
+                            background: black;">
+                            BRAKUMO NEWS!
+                            </td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#cecece" style="font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+                            text-align: center; 
+                            height: 100%; 
+                            font-size: 16px; 
+                            color: black; 
+                            background: #cecece;">
+                          ${req.body.greeting}<br />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#cecece" style="font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+                            text-align: center; 
+                            height: 100%; 
+                            font-size: 16px; 
+                            color: black; 
+                            background: #cecece;">
+                            Currently scheduled shows:
+                            <br />&nbsp;<br />
+                            ${showsHTML}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+                            text-align: center; 
+                            height: 100%; 
+                            font-size: 16px; 
+                            color: black; 
+                            background: grey;">
+                            <img src="http://www.drumbas.com/drumbas_complete_01_small.jpg" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td bgcolor="#cecece" style="font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+                            text-align: center; 
+                            height: 100%; 
+                            font-size: 16px; 
+                            color: black; 
+                            background: grey;">
+                            ${req.body.summary}<br />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="center">
+                                &nbsp;
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td align="center">
+                                      <table border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                          <td align="center" style="border-radius: 0px;" bgcolor="#000000"><a href="http://www.drumbas.com/merch" target="_blank" style="font-size: 16px; font-family: 'Avenir', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #ffffff; text-decoration: none; text-decoration: none;border-radius: 0px; padding: 12px 18px; border: 3px solid #ffffff; display: inline-block;">Buy Some Merch!</a></td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </table>
+                                &nbsp;
+                            </td>
+                        </tr>
+                      </table>
+                  </td>
+              </tr>
           </table>` 
           // ({path: 'email-dist/two.template.html'})
         };
@@ -211,7 +260,7 @@ router.post('/admin_send_mail_submit', (req, res) => {
         });
       };
       let selected_link = 'ADMIN';
-      let admin_link = 'ADMIN_SEND_MAIL'
+      let admin_link = 'ADMIN'
       res.render('admin', { selected_link, admin_link });
     };
   });
