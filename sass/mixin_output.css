@@ -1,0 +1,7 @@
+.box {
+  -webkit-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+
+/*# sourceMappingURL=mixin_output.css.map */
